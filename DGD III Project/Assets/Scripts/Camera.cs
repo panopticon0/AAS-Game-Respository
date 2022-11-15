@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera : MonoBehaviour
-{
-    public GameObject player;
+{ 
+    public Transform player;
+    private float camSpeed;
+    public float upperX = 90.0f;
+    public float lowerX = 345.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        camSpeed = 20.0f;
     }
 
-    void Update()
-    {
-
-    }
-
-    // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = player.transform.position + new Vector3(0, 2, -5);
+        float horizontalVInput = Input.GetAxis("Mouse X");
+        float verticalVInput = Input.GetAxis("Mouse Y");
+        transform.LookAt(player);
     }
 }

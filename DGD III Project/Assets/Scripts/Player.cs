@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public bool onGround = true;
     public float speed = 5.0f;
+    public GameObject camera;
     private float thrust = 4.0f;
     public Rigidbody playerRb;
     // Start is called before the first frame update
@@ -20,7 +21,10 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        transform.position += new Vector3(horizontalInput * speed * Time.deltaTime, 0, verticalInput * speed * Time.deltaTime);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, camera.transform.eulerAngles.y, transform.eulerAngles.z);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);
+        transform.Translate(Vector3.right * speed * Time.deltaTime * horizontalInput);
+
         if (Input.GetKeyDown("space") && onGround == true)
         {
             playerRb.AddForce(0, thrust, 0, ForceMode.Impulse);

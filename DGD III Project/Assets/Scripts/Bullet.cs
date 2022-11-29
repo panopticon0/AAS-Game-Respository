@@ -21,4 +21,12 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         } timer -= Time.deltaTime;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

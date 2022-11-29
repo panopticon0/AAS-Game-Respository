@@ -14,6 +14,9 @@ public class Head : MonoBehaviour
     public float reload = 1.0f;
     private float recover = 0.0f;
     private float recoverB = 0.0f;
+    private float range = 10.0f;
+    private List<GameObject> enemies = new List<GameObject>();
+    private int target = 0;
 
     public GameObject player;
     public GameObject bullet;
@@ -43,6 +46,32 @@ public class Head : MonoBehaviour
             transform.eulerAngles = new Vector3(upperX - 1, transform.eulerAngles.y, transform.eulerAngles.z);
         }
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
+        checkRange();
+        if (target >= enemies.Count)
+        {
+            target = 0;
+        }
+        if (target < 0)
+        {
+            target = enemies.Count - 1;
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && enemies.Count > 0 && enemies[target].GetComponent<Enemy>().kill == false)
+        {
+            if (enemies[target].GetComponent<Enemy>().kill == false)
+            {
+                transform.LookAt(enemies[target].transform);
+            } else
+            {
+                target++;
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                target++;
+            } if (Input.GetKeyDown(KeyCode.Q))
+            {
+                target--;
+            }
+        }
         if (Input.GetMouseButtonDown(0) && stock > 0 && recover >= recoil)
         {
             Instantiate(bullet, transform.position, transform.rotation);
@@ -60,6 +89,48 @@ public class Head : MonoBehaviour
             if (recoverB <= 0)
             {
                 stock = max;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            bool exist = false;
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (other.gameObject.GetInstanceID() == enemies[i].GetInstanceID() || other.gameObject.GetComponent<Enemy>().kill == true)
+                {
+                    exist = true;
+                }
+            }
+            if (exist == false)
+            {
+                enemies.Add(other.gameObject);
+                Debug.Log("Found target");
+            }
+        }
+    }
+    private void checkRange()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i] == null)
+            {
+                enemies.RemoveAt(i);
+                Debug.Log("removed target");
+                i--;
+            }
+            if (enemies.Count > 0)
+            {
+                float distance = Vector3.Distance(enemies[i].transform.position, transform.position);
+                if (distance > range)
+                {
+                    enemies.RemoveAt(i);
+                    Debug.Log("Removed Target");
+                    i--;
+                }
             }
         }
     }

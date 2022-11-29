@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
     public bool onGround = true;
     public float speed = 5.0f;
-    public GameObject camera;
     private float thrust = 4.0f;
-    public Rigidbody playerRb;
+    private Rigidbody playerRb;
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {

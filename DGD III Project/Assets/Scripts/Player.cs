@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     private float thrust = 4.0f;
     public Rigidbody playerRb;
+    public Animator playerAnim;
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,9 +23,15 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         transform.position += new Vector3(horizontalInput * speed * Time.deltaTime, 0, verticalInput * speed * Time.deltaTime);
+      
         if (Input.GetKeyDown("space") && onGround == true)
         {
             playerRb.AddForce(0, thrust, 0, ForceMode.Impulse);
+        }
+
+        if (verticalInput >= 1)
+        {
+            playerAnim.SetFloat("vertical", 0.5f);
         }
     }
 

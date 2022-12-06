@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public bool onGround = true;
     public float speed = 5.0f;
     private float thrust = 4.0f;
+    public float rotationSpeed;
     public Rigidbody playerRb;
     public Animator playerAnim;
     // Start is called before the first frame update
@@ -21,18 +22,39 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+        
 
         transform.position += new Vector3(horizontalInput * speed * Time.deltaTime, 0, verticalInput * speed * Time.deltaTime);
-      
+
+
         if (Input.GetKeyDown("space") && onGround == true)
         {
             playerRb.AddForce(0, thrust, 0, ForceMode.Impulse);
         }
+        
+      
 
-        if (verticalInput >= 1)
+        //Animation code, cleaning up after exam/presentation
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) )
         {
-            playerAnim.SetFloat("vertical", 0.5f);
+
+            playerAnim.SetFloat("vertical", 1.0f);
+        } else
+        {
+            playerAnim.SetFloat("vertical", 0.0f);
         }
+        //Left Shift to activate run animation and increase speed
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerAnim.SetBool("running", true);
+            speed = 7.5f;
+
+        }else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            playerAnim.SetBool("running", false);
+            speed = 5.0f;
+        }
+        //End Animation code
     }
 
     void OnCollisionEnter(Collision collision)

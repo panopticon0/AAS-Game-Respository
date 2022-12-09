@@ -32,7 +32,7 @@ public class Head : MonoBehaviour
     void Update()
     {
         camSpeed = 3.0f;
-        transform.position = player.transform.position + new Vector3(0.0f, 0.6f, 0.0f);
+        transform.position = player.transform.position + new Vector3(0.0f, 2.0f, 0.0f);
         float verticalVInput = Input.GetAxis("Mouse Y");
         float horizontalVInput = Input.GetAxis("Mouse X");
         transform.eulerAngles = new Vector3(transform.eulerAngles.x + (camSpeed * verticalVInput), transform.eulerAngles.y, transform.eulerAngles.z);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public bool onGround = true;
     public float speed = 5.0f;
     public float thrust = 4.0f;
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
     public Rigidbody playerRb;
     public Animator playerAnim;
     public GameObject head;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,9 @@ public class Player : MonoBehaviour
 
         transform.position += new Vector3(horizontalInput * speed * Time.deltaTime, 0, verticalInput * speed * Time.deltaTime);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, head.transform.eulerAngles.y, transform.eulerAngles.z);
+
+
+
 
         if (Input.GetKeyDown("space") && onGround == true)
         {
@@ -50,7 +56,7 @@ public class Player : MonoBehaviour
             playerAnim.SetBool("running", true);
             speed = 7.5f;
 
-        }else if (Input.GetKeyUp(KeyCode.LeftShift))
+        }else if (Input.GetKeyUp(KeyCode.RightShift))
         {
             playerAnim.SetBool("running", false);
             speed = 5.0f;

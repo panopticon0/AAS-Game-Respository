@@ -34,19 +34,256 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationImportWarnings: "\nClip 'rig|Attack' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'DEF-spine.004' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'DEF-upper_arm.L' has
+      translation animation that will be discarded.\n\t'DEF-upper_arm.R' has translation
+      animation that will be discarded.\n\t'DEF-thigh.L' has scale animation that
+      will be discarded.\n\t'DEF-shin.L' has scale animation that will be discarded.\n\t'DEF-foot.L'
+      has scale animation that will be discarded.\n\t'DEF-thigh.R' has scale animation
+      that will be discarded.\n\t'DEF-shin.R' has scale animation that will be discarded.\n\t'DEF-foot.R'
+      has scale animation that will be discarded.\n\nClip 'rig|Idle' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'DEF-spine.001' has scale
+      animation that will be discarded.\n\t'DEF-spine.002' has scale animation that
+      will be discarded.\n\t'DEF-spine.003' has scale animation that will be discarded.\n\t'DEF-spine.004'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-spine.004'
+      has scale animation that will be discarded.\n\t'DEF-upper_arm.L' has translation
+      animation that will be discarded.\n\t'DEF-upper_arm.L' has scale animation
+      that will be discarded.\n\t'DEF-upper_arm.R' has translation animation that
+      will be discarded.\n\t'DEF-upper_arm.R' has scale animation that will be discarded.\n\nClip
+      'rig|Walk Cycle' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'DEF-spine.004'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'DEF-forearm.L'
+      has scale animation that will be discarded.\n\t'DEF-hand.L' has scale animation
+      that will be discarded.\n\t'DEF-thigh.L' has scale animation that will be discarded.\n\t'DEF-shin.L'
+      has scale animation that will be discarded.\n\t'DEF-foot.L' has scale animation
+      that will be discarded.\n\t'DEF-thigh.R' has scale animation that will be discarded.\n\t'DEF-shin.R'
+      has scale animation that will be discarded.\n\t'DEF-foot.R' has scale animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'rig|Attack':\n\tLeftLowerLeg
+      average position error 9.4 mm and maximum position error 13.2 mm at time 0:14
+      (43.8%) Frame 14\n\tLeftFoot average position error 32.4 mm and maximum position
+      error 43.7 mm at time 0:22 (68.8%) Frame 22\n\tRightLowerLeg average position
+      error 5.7 mm and maximum position error 18.7 mm at time 0: 7 (21.9%) Frame
+      7\n\tRightFoot average position error 64.7 mm and maximum position error 91.1
+      mm at time 0:17 (53.1%) Frame 17\n\tLeftUpperArm average position error 1.6
+      mm and maximum position error 6.3 mm at time 0:24 (75.0%) Frame 24\n\tLeftLowerArm
+      average position error 1.7 mm and maximum position error 6.4 mm at time 0:24
+      (75.0%) Frame 24\n\tLeftHand average position error 1.7 mm and maximum position
+      error 6.4 mm at time 0:24 (75.0%) Frame 24\n\tRightUpperArm average position
+      error 1.6 mm and maximum position error 6.4 mm at time 0:24 (75.0%) Frame 24\n\tRightLowerArm
+      average position error 1.6 mm and maximum position error 6.3 mm at time 0:24
+      (75.0%) Frame 24\n\tRightHand average position error 1.6 mm and maximum position
+      error 6.3 mm at time 0:24 (75.0%) Frame 24\n\tHead average position error 7.5
+      mm and maximum position error 13.0 mm at time 0:16 (50.0%) Frame 16\n\nRetargeting
+      quality report for clip 'rig|CubeAction':\n\tLeftFoot average position error
+      3.9 mm and maximum position error 3.9 mm at time 0: 0 (0.0%) Frame 0\n\tRightFoot
+      average position error 4.9 mm and maximum position error 4.9 mm at time 0:
+      0 (0.0%) Frame 0\n\tLeftUpperArm average position error 7.7 mm and maximum
+      position error 7.7 mm at time 0: 0 (0.0%) Frame 0\n\tLeftLowerArm average position
+      error 7.7 mm and maximum position error 7.7 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand
+      average position error 7.6 mm and maximum position error 7.6 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightUpperArm average position error 7.6 mm and maximum
+      position error 7.6 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerArm average
+      position error 7.5 mm and maximum position error 7.5 mm at time 0: 0 (0.0%)
+      Frame 0\n\tRightHand average position error 7.5 mm and maximum position error
+      7.5 mm at time 0: 0 (0.0%) Frame 0\n\tHead average position error 8.0 mm and
+      maximum position error 8.0 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality
+      report for clip 'rig|Idle':\n\tLeftLowerLeg average position error 33.7 mm
+      and maximum position error 33.7 mm at time 0:24 (37.5%) Frame 24\n\tLeftFoot
+      average position error 24.7 mm and maximum position error 24.7 mm at time 0:
+      8 (12.5%) Frame 8\n\tRightLowerLeg average position error 6.7 mm and maximum
+      position error 6.7 mm at time 0:29 (46.9%) Frame 29\n\tRightFoot average position
+      error 62.2 mm and maximum position error 62.2 mm at time 1: 1 (81.3%) Frame
+      51\n\tLeftUpperArm average position error 11.0 mm and maximum position error
+      12.8 mm at time 0: 0 (0.0%) Frame 0\n\tLeftLowerArm average position error
+      10.8 mm and maximum position error 12.6 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand
+      average position error 10.9 mm and maximum position error 12.8 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightUpperArm average position error 11.0 mm and maximum
+      position error 12.8 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerArm average
+      position error 10.9 mm and maximum position error 12.7 mm at time 0: 0 (0.0%)
+      Frame 0\n\tRightHand average position error 10.8 mm and maximum position error
+      12.8 mm at time 0: 0 (0.0%) Frame 0\n\tHead average position error 13.0 mm
+      and maximum position error 18.5 mm at time 0:48 (76.6%) Frame 48\n\nRetargeting
+      quality report for clip 'rig|Idle.001':\n\tLeftFoot average position error
+      3.9 mm and maximum position error 3.9 mm at time 0: 0 (0.0%) Frame 0\n\tRightFoot
+      average position error 4.9 mm and maximum position error 4.9 mm at time 0:
+      0 (0.0%) Frame 0\n\tLeftUpperArm average position error 7.7 mm and maximum
+      position error 7.7 mm at time 0: 0 (0.0%) Frame 0\n\tLeftLowerArm average position
+      error 7.7 mm and maximum position error 7.7 mm at time 0: 0 (0.0%) Frame 0\n\tLeftHand
+      average position error 7.6 mm and maximum position error 7.6 mm at time 0:
+      0 (0.0%) Frame 0\n\tRightUpperArm average position error 7.6 mm and maximum
+      position error 7.6 mm at time 0: 0 (0.0%) Frame 0\n\tRightLowerArm average
+      position error 7.5 mm and maximum position error 7.5 mm at time 0: 0 (0.0%)
+      Frame 0\n\tRightHand average position error 7.5 mm and maximum position error
+      7.5 mm at time 0: 0 (0.0%) Frame 0\n\tHead average position error 8.0 mm and
+      maximum position error 8.0 mm at time 0: 0 (0.0%) Frame 0\n\nRetargeting quality
+      report for clip 'rig|Walk Cycle':\n\tLeftLowerLeg average position error 23.6
+      mm and maximum position error 56.3 mm at time 0:22 (68.8%) Frame 22\n\tLeftFoot
+      average position error 70.8 mm and maximum position error 226.9 mm at time
+      0:21 (65.6%) Frame 21\n\tRightLowerLeg average position error 33.8 mm and maximum
+      position error 79.6 mm at time 0:22 (71.9%) Frame 22\n\tRightFoot average position
+      error 64.6 mm and maximum position error 129.7 mm at time 0:25 (78.1%) Frame
+      25\n\tHead average position error 7.0 mm and maximum position error 11.5 mm
+      at time 0: 8 (25.0%) Frame 8\n"
+    animationDoRetargetingWarnings: 1
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: rig|Attack
+      takeName: rig|Attack
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|CubeAction
+      takeName: rig|CubeAction
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Idle
+      takeName: rig|Idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 64
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Idle.001
+      takeName: rig|Idle.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: rig|Walk Cycle
+      takeName: rig|Walk Cycle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -94,8 +331,344 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: DEF-spine
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-spine.001
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-spine.002
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-shoulder.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-shoulder.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-upper_arm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-upper_arm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-forearm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-forearm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-toe.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-toe.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: DEF-spine.003
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: normal zomb(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube
+      parentName: normal zomb(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.7044224, y: 0.7044224, z: 0.7044224}
+    - name: rig
+      parentName: normal zomb(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: root
+      parentName: rig
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: DEF-spine
+      parentName: root
+      position: {x: 0.0013588732, y: 0.0559522, z: 1.0319679}
+      rotation: {x: 0.7904554, y: -0.00000007301806, z: -0.000000094229655, w: 0.6125196}
+      scale: {x: 0.9999997, y: 0.9999997, z: 1.0000002}
+    - name: DEF-spine.001
+      parentName: DEF-spine
+      position: {x: 0.0000000010404619, y: 0.15221949, z: -0.00000001884473}
+      rotation: {x: -0.080370456, y: 0.000000118823735, z: 0.000000009580922, w: 0.9967651}
+      scale: {x: 0.9943271, y: 1.0114433, z: 0.99432737}
+    - name: DEF-spine.002
+      parentName: DEF-spine.001
+      position: {x: -0.000000001571479, y: 0.18407713, z: 0.0000000127838575}
+      rotation: {x: -0.061566696, y: -2.131628e-14, z: -1.3322675e-14, w: 0.99810296}
+      scale: {x: 0.9877423, y: 1.0252323, z: 0.9874813}
+    - name: DEF-spine.003
+      parentName: DEF-spine.002
+      position: {x: 0.000000017715138, y: 0.17288753, z: 0.000000003430614}
+      rotation: {x: 0.0016271584, y: -3.5903186e-16, z: 6.17215e-15, w: 0.9999987}
+      scale: {x: 1.0181862, y: 0.96459454, z: 1.0182105}
+    - name: DEF-spine.004
+      parentName: DEF-spine.003
+      position: {x: -0.0000000057589205, y: 0.19257857, z: -0.000000005464244}
+      rotation: {x: 0.20173778, y: 7.27504e-16, z: 4.48707e-15, w: 0.97943956}
+      scale: {x: 1.0000001, y: 0.99861777, z: 1.0013852}
+    - name: DEF-neck
+      parentName: DEF-spine.004
+      position: {x: -0.0000000026775524, y: 0.06616364, z: -0.000000024214387}
+      rotation: {x: -0.09485752, y: 7.140577e-15, z: -7.729539e-16, w: 0.99549085}
+      scale: {x: 0.99999934, y: 1.0004874, z: 0.999514}
+    - name: DEF-head
+      parentName: DEF-neck
+      position: {x: -0.000000005122274, y: 0.06270108, z: -0.000000013969839}
+      rotation: {x: -0.09371202, y: -7.352065e-15, z: -3.6476834e-15, w: 0.9955993}
+      scale: {x: 1.0000007, y: 1.0004455, z: 0.99955416}
+    - name: DEF-head_end
+      parentName: DEF-head
+      position: {x: -0, y: 0.1983, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-shoulder.L
+      parentName: DEF-spine.003
+      position: {x: -0.018300002, y: 0.13722117, z: 0.078250915}
+      rotation: {x: -0.59227705, y: 0.39623955, z: 0.4152548, w: 0.5654782}
+      scale: {x: 1.0000811, y: 0.99981046, z: 1.0001084}
+    - name: DEF-upper_arm.L
+      parentName: DEF-shoulder.L
+      position: {x: -0.00779075, y: 0.20315358, z: -0.009615953}
+      rotation: {x: 0.13784204, y: -0.8492473, z: 0.09500226, w: 0.5007527}
+      scale: {x: 0.99875104, y: 0.9997854, z: 1.001467}
+    - name: DEF-forearm.L
+      parentName: DEF-upper_arm.L
+      position: {x: 0.0000001359731, y: 0.27977228, z: -0.000000022351742}
+      rotation: {x: 0.022136932, y: 0.005624443, z: -0.027432542, w: 0.99936265}
+      scale: {x: 0.99982965, y: 1.0006224, z: 0.9995487}
+    - name: DEF-hand.L
+      parentName: DEF-forearm.L
+      position: {x: -0.000000059604645, y: 0.2628356, z: -0.00000018626451}
+      rotation: {x: -0.013060731, y: 0.00046157293, z: 0.035372347, w: 0.99928874}
+      scale: {x: 1.0002038, y: 0.99961436, z: 1.0001824}
+    - name: DEF-hand.L_end
+      parentName: DEF-hand.L
+      position: {x: -0, y: 0.0801608, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-shoulder.R
+      parentName: DEF-spine.003
+      position: {x: 0.018299997, y: 0.1372211, z: 0.078250915}
+      rotation: {x: -0.5912742, y: -0.39789057, z: -0.4145543, w: 0.5658822}
+      scale: {x: 1.0000811, y: 0.9998107, z: 1.0001085}
+    - name: DEF-upper_arm.R
+      parentName: DEF-shoulder.R
+      position: {x: 0.007790735, y: 0.20335421, z: -0.011386331}
+      rotation: {x: 0.1361724, y: 0.8495376, z: -0.096346565, w: 0.50045997}
+      scale: {x: 0.9987514, y: 0.9997848, z: 1.0014682}
+    - name: DEF-forearm.R
+      parentName: DEF-upper_arm.R
+      position: {x: 0.000000070780516, y: 0.27977228, z: -0.000000007450581}
+      rotation: {x: -0.022023277, y: 0.0056388085, z: -0.02750414, w: -0.9993632}
+      scale: {x: 0.99999964, y: 1.0002849, z: 0.9997158}
+    - name: DEF-hand.R
+      parentName: DEF-forearm.R
+      position: {x: 0.00000008195639, y: 0.26283553, z: -0.000000014901161}
+      rotation: {x: -0.01306072, y: -0.00046158355, z: -0.03537226, w: 0.9992888}
+      scale: {x: 1.000037, y: 0.99994874, z: 1.0000145}
+    - name: DEF-hand.R_end
+      parentName: DEF-hand.R
+      position: {x: -0, y: 0.0801608, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-thigh.L
+      parentName: DEF-spine
+      position: {x: -0.09799999, y: 0.017809287, z: 0.03960813}
+      rotation: {x: 0.9702524, y: 0.012117283, z: 0.16895726, w: 0.17296566}
+      scale: {x: 0.95781666, y: 1.0900224, z: 0.957816}
+    - name: DEF-shin.L
+      parentName: DEF-thigh.L
+      position: {x: 0.000000033527613, y: 0.43455353, z: 0.000000044703484}
+      rotation: {x: 0.10233611, y: -0.0000002759625, z: -0.0000000037252899, w: 0.99474996}
+      scale: {x: 1.0617415, y: 0.8939551, z: 1.0586729}
+    - name: DEF-foot.L
+      parentName: DEF-shin.L
+      position: {x: 0.000000017695129, y: 0.4544684, z: -0.00000002142042}
+      rotation: {x: -0.5220896, y: -0.1514336, z: -0.07522432, w: 0.8359615}
+      scale: {x: 0.9840398, y: 0.97411275, z: 1.0439335}
+    - name: DEF-toe.L
+      parentName: DEF-foot.L
+      position: {x: 0.0000000016298145, y: 0.12924549, z: -0.000000008032657}
+      rotation: {x: 0.00016137953, y: 0.9612485, z: -0.27568266, w: 0.000562705}
+      scale: {x: 1.0000398, y: 0.99549484, z: 1.0045067}
+    - name: DEF-toe.L_end
+      parentName: DEF-toe.L
+      position: {x: -0, y: 0.067200005, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DEF-thigh.R
+      parentName: DEF-spine
+      position: {x: 0.09799999, y: 0.0178093, z: 0.03960809}
+      rotation: {x: 0.9702523, y: -0.012117263, z: -0.16895753, w: 0.17296568}
+      scale: {x: 1.0084038, y: 0.9834028, z: 1.0084041}
+    - name: DEF-shin.R
+      parentName: DEF-thigh.R
+      position: {x: -0.000000015832484, y: 0.43455347, z: 0.000000005122274}
+      rotation: {x: 0.102336116, y: 0.00000029098007, z: -0.000000014901159, w: 0.9947499}
+      scale: {x: 0.912754, y: 1.1993264, z: 0.9139089}
+    - name: DEF-foot.R
+      parentName: DEF-shin.R
+      position: {x: -0.000000016763806, y: 0.4544685, z: 0.000000035390258}
+      rotation: {x: -0.52217734, y: 0.15241218, z: 0.0746131, w: 0.83578366}
+      scale: {x: 1.0929495, y: 1.041721, z: 0.8909505}
+    - name: DEF-toe.R
+      parentName: DEF-foot.R
+      position: {x: 0.0000000069849193, y: 0.12924547, z: 0.000000039115548}
+      rotation: {x: 0.00016137211, y: 0.9612485, z: -0.27568266, w: 0.0005625784}
+      scale: {x: 1.0000299, y: 1.0951885, z: 0.91996497}
+    - name: DEF-toe.R_end
+      parentName: DEF-toe.R
+      position: {x: -0, y: 0.067200005, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -106,13 +679,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

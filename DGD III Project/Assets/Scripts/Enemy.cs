@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
     public float range = 1.5f;
     private float deathTime = 1.0f;
     public bool kill = false;
+    public Animator enemyAnim;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        enemyAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,10 @@ public class Enemy : MonoBehaviour
         {
             transform.LookAt(player);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            enemyAnim.SetBool("playerDetected", true);
+        } else
+        {
+            enemyAnim.SetBool("playerDetected", false);
         }
         if (health <= 0)
         {
@@ -34,6 +40,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,6 +49,14 @@ public class Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
             health--;
+
+        } else if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Attacking!");
+            enemyAnim.SetBool("attacking", true);
         }
+
     }
+
+
 }

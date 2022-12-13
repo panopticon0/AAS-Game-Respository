@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private float health = 5.0f;
-    private float speed = 2.5f;
+    public float speed = 2.5f;
     private Transform player;
     public float range = 1.5f;
     private float deathTime = 1.0f;

@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     public Rigidbody playerRb;
     public Animator playerAnim;
     public GameObject head;
+    public float health = 5.0f;
+    private bool invi = false;
+    public float timer = 5f;
+    public float gravMultiplier = 2f;
 
     
     // Start is called before the first frame update
@@ -21,6 +25,10 @@ public class Player : MonoBehaviour
         playerAnim = GetComponent<Animator>();
     }
 
+    public void FixedUpdate() {
+        GetComponent<Rigidbody>().AddForce(gravMultiplier * Physics.gravity, ForceMode.Acceleration);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +36,7 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         
 
-        transform.position += new Vector3(horizontalInput * speed * Time.deltaTime, 0, verticalInput * speed * Time.deltaTime);
+        transform.Translate(new Vector3(horizontalInput * speed, 0, verticalInput * speed) * Time.deltaTime);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, head.transform.eulerAngles.y, transform.eulerAngles.z);
 
 
@@ -62,6 +70,14 @@ public class Player : MonoBehaviour
             speed = 5.0f;
         }
         //End Animation code
+        if (invi == true) {
+            timer -= Time.deltaTime;
+            if (timer <= 0.0f) {
+                invi = false;
+                timer = 5.0f;
+                Debug.Log("invi set to" + invi);
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -69,6 +85,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             onGround = true;
+        }
+        if (collision.gameObject.tag == "Enemy") {
+            if (invi == false)
+            {
+                health--;
+                invi = true;
+                Debug.Log(health + " invi set to true");
+            }
         }
     }
 

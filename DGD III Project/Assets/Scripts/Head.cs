@@ -8,29 +8,48 @@ public class Head : MonoBehaviour
     public float upperX = 90.0f;
     public float lowerX = 345.0f;
 
-    public float recoil = 0.15f;
-    public float max = 6.0f;
-    private float stock = 0.0f;
-    public float reload = 1.0f;
-    private float recover = 0.0f;
-    private float recoverB = 0.0f;
+    //how long it takes to fire another shot
+    private List<float> recoil = new List<float>();
+    //maximum stock of bullets
+    public List<float> max = new List<float>();
+    //stock of bullets
+    private List<float> stock = new List<float>();
+    //how long it takes to reload bullets
+    public List<float> reload = new List<float>();
+    //time before recovering recoil
+    private List<float> recover = new List<float>();
+    //time before reloading all bullets
+    private List<float> recoverB = new List<float>();
+    //enemy detection range
     private float range = 10.0f;
     private List<GameObject> enemies = new List<GameObject>();
     private int target = 0;
 
     public GameObject player;
-    public GameObject bullet;
+    public List<GameObject> bullet = new List<GameObject>();
+    //selected weapon id
+    private float select = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        stock = max;
-        recover = recoil;
-        recoverB = reload;
+        recoil.Add(0.15f);
+        recoil.Add(0.7f);
+        reload.Add(1.0f);
+        reload.Add(2.0f);
+        max.Add(6.0f);
+        max.Add(2.0f);
+        for (int i = 0; i < bullet.Count; i++)
+        {
+            stock.Add(max[i]);
+            recover.Add(recoil[i]);
+            recoverB.Add(reload[i]);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //head rotation
         camSpeed = 3.0f;
         transform.position = player.transform.position + new Vector3(0.0f, 2.0f, 0.0f);
         float verticalVInput = Input.GetAxis("Mouse Y");
@@ -46,6 +65,7 @@ public class Head : MonoBehaviour
             transform.eulerAngles = new Vector3(upperX - 1, transform.eulerAngles.y, transform.eulerAngles.z);
         }
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
+        //lock onto target
         checkRange();
         if (target >= enemies.Count)
         {
@@ -72,29 +92,47 @@ public class Head : MonoBehaviour
                 target--;
             }
         }
-        if (Input.GetMouseButtonDown(0) && stock > 0 && recover >= recoil)
+        if (select < 0)
         {
-            Instantiate(bullet, transform.position, transform.rotation);
-            recover = 0.0f;
-            stock -= 1;
-            recoverB = reload;
+            select = bullet.Count - 1;
         }
-        if (recover < recoil)
+        if (select >= bullet.Count)
         {
-            recover += Time.deltaTime;
+            select = 0;
         }
-        if (stock <= 0)
+        select += Input.mouseScrollDelta.y;
+        if (select < 0)
         {
-            recoverB -= Time.deltaTime;
-            if (recoverB <= 0)
+            select = bullet.Count - 1;
+        } if (select >= bullet.Count)
+        {
+            select = 0;
+        }
+        //shooting bullets
+        if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])
+        {
+            Instantiate(bullet[(int)select], transform.position, transform.rotation);
+            recover[(int)select] = 0.0f;
+            stock[(int)select] -= 1;
+            recoverB[(int)select] = reload[(int)select];
+        }
+        if (recover[(int)select] < recoil[(int)select])
+        {
+            recover[(int)select] += Time.deltaTime;
+        }
+        if (stock[(int)select] <= 0)
+        {
+            recoverB[(int)select] -= Time.deltaTime;
+            if (recoverB[(int)select] <= 0)
             {
-                stock = max;
+                stock[(int)select] = max[(int)select];
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        //check for enemy in range
         if (other.tag == "Enemy")
         {
             bool exist = false;
@@ -114,6 +152,7 @@ public class Head : MonoBehaviour
     }
     private void checkRange()
     {
+        //check for enemy out of range or deleted
         for (int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i] == null)

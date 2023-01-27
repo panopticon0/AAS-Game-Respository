@@ -11,11 +11,13 @@ public class Enemy : MonoBehaviour
     private float deathTime = 1.0f;
     public bool kill = false;
     public Animator enemyAnim;
+    private Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
         enemyAnim = GetComponent<Animator>();
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -24,12 +26,17 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
         if (distance <= range)
         {
-            transform.LookAt(player);
+            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             enemyAnim.SetBool("playerDetected", true);
         } else
         {
             enemyAnim.SetBool("playerDetected", false);
+            if (Vector3.Distance(startPos, transform.position) >= 2)
+            {
+                transform.LookAt(new Vector3(startPos.x, transform.position.y, startPos.z));
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            }
         }
         if (health <= 0)
         {

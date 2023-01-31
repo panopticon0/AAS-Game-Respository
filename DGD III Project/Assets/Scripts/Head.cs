@@ -11,15 +11,19 @@ public class Head : MonoBehaviour
     //how long it takes to fire another shot
     private List<float> recoil = new List<float>();
     //maximum stock of bullets
-    public List<float> max = new List<float>();
+    private List<float> max = new List<float>();
     //stock of bullets
     private List<float> stock = new List<float>();
     //how long it takes to reload bullets
-    public List<float> reload = new List<float>();
+    private List<float> reload = new List<float>();
     //time before recovering recoil
     private List<float> recover = new List<float>();
     //time before reloading all bullets
     private List<float> recoverB = new List<float>();
+    //shotgun accuracy range
+    private float rangeRotate = 3.0f;
+    //how many bullets to fire in a single shot
+    private float bulletLoadout = 3.0f;
     //enemy detection range
     private float range = 10.0f;
     private List<GameObject> enemies = new List<GameObject>();
@@ -33,11 +37,20 @@ public class Head : MonoBehaviour
     void Start()
     {
         recoil.Add(0.15f);
+        recoil.Add(1.0f);
+        recoil.Add(0.04f);
         recoil.Add(0.7f);
+
         reload.Add(1.0f);
         reload.Add(2.0f);
+        reload.Add(1.5f);
+        reload.Add(1.5f);
+
         max.Add(6.0f);
         max.Add(2.0f);
+        max.Add(20.0f);
+        max.Add(4.0f);
+
         for (int i = 0; i < bullet.Count; i++)
         {
             stock.Add(max[i]);
@@ -111,7 +124,17 @@ public class Head : MonoBehaviour
         //shooting bullets
         if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])
         {
-            Instantiate(bullet[(int)select], transform.position, transform.rotation);
+            if (select == 3)
+            {
+                for (int i = 0; i < bulletLoadout; i++)
+                {
+                    Instantiate(bullet[(int)select], transform.position, transform.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
+                }
+            }
+            else
+            {
+                Instantiate(bullet[(int)select], transform.position, transform.rotation);
+            }
             recover[(int)select] = 0.0f;
             stock[(int)select] -= 1;
             recoverB[(int)select] = reload[(int)select];

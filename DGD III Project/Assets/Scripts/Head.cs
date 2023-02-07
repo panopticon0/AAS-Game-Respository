@@ -30,9 +30,11 @@ public class Head : MonoBehaviour
     private int target = 0;
 
     public GameObject player;
-    public List<GameObject> bullet = new List<GameObject>();
+    public List<GameObject> bullet = new List<GameObject>();\
+    //what items the player has
+    public List<bool> have = new List<bool>();
     //selected weapon id
-    private float select = 0f;
+    public float select = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,12 +53,17 @@ public class Head : MonoBehaviour
         max.Add(20.0f);
         max.Add(4.0f);
 
+
         for (int i = 0; i < bullet.Count; i++)
         {
             stock.Add(max[i]);
             recover.Add(recoil[i]);
             recoverB.Add(reload[i]);
+            have.Add(false);
         }
+
+        //set initial gun to true, have at least one weapon at all times
+        have[0] = true;
     }
 
     // Update is called once per frame
@@ -104,8 +111,8 @@ public class Head : MonoBehaviour
             {
                 target--;
             }
-        }
-        if (select < 0)
+        
+        }if (select < 0)
         {
             select = bullet.Count - 1;
         }
@@ -114,12 +121,24 @@ public class Head : MonoBehaviour
             select = 0;
         }
         select += Input.mouseScrollDelta.y;
-        if (select < 0)
+        //if weapon is marked as false, automatically scroll through weapons until you pick one that is true.
+        while (have[(int)select] == false)
         {
-            select = bullet.Count - 1;
-        } if (select >= bullet.Count)
-        {
-            select = 0;
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                select++;
+            } else
+            {
+                select--;
+            }
+            if (select < 0)
+            {
+                select = bullet.Count - 1;
+            }
+            if (select >= bullet.Count)
+            {
+                select = 0;
+            }
         }
         //shooting bullets
         if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])

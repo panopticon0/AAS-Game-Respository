@@ -30,7 +30,7 @@ public class Head : MonoBehaviour
     private int target = 0;
 
     public GameObject player;
-    public List<GameObject> bullet = new List<GameObject>();\
+    public List<GameObject> bullet = new List<GameObject>();
     //what items the player has
     public List<bool> have = new List<bool>();
     //selected weapon id

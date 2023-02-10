@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
 
 
-        //Animation code, cleaning up after exam/presentation
+        //Animation code
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
 

@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
             enemyAnim.SetBool("playerDetected", false);
             if (Vector3.Distance(startPos, transform.position) >= 2)
             {
+                enemyAnim.SetBool("playerDetected", true);
                 transform.LookAt(new Vector3(startPos.x, transform.position.y, startPos.z));
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }

@@ -42,17 +42,19 @@ public class Head : MonoBehaviour
         recoil.Add(1.0f);
         recoil.Add(0.04f);
         recoil.Add(0.7f);
+        recoil.Add(0.7f);
 
         reload.Add(1.0f);
         reload.Add(2.0f);
         reload.Add(1.5f);
         reload.Add(1.5f);
+        reload.Add(0.0f);
 
         max.Add(6.0f);
         max.Add(2.0f);
         max.Add(20.0f);
         max.Add(4.0f);
-
+        max.Add(1.0f);
 
         for (int i = 0; i < bullet.Count; i++)
         {
@@ -143,7 +145,12 @@ public class Head : MonoBehaviour
         //shooting bullets
         if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])
         {
-            if (select == 3)
+            if (select == 4)
+            {
+                GameObject punch = Instantiate(bullet[(int)select], player.transform, false);
+                punch.transform.localPosition += new Vector3(-0.5f, 2.7f, -0.3f);
+            }
+            else if (select == 3)
             {
                 for (int i = 0; i < bulletLoadout; i++)
                 {

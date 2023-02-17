@@ -55,10 +55,17 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            health -= other.gameObject.GetComponent<Bullet>().damage;
             Destroy(other.gameObject);
-            health--;
+            Debug.Log(health);
 
-        } else if (other.gameObject.tag == "Player")
+        } else if (other.gameObject.tag == "Melee")
+        {
+            health -= other.gameObject.GetComponent<Swing>().damage;
+            Destroy(other.gameObject);
+            Debug.Log(health);
+        }
+        else if (other.gameObject.tag == "Player")
         {
             Debug.Log("Attacking!");
             enemyAnim.SetBool("attacking", true);

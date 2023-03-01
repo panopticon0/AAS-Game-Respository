@@ -12,12 +12,10 @@ GameObject:
   - component: {fileID: 33000011918817344}
   - component: {fileID: 23000011350807236}
   - component: {fileID: 1394843986619721970}
-  - component: {fileID: 4130082742264104894}
-  - component: {fileID: -1776946253312233813}
   - component: {fileID: 3936790033647240474}
   m_Layer: 0
   m_Name: Donut
-  m_TagString: Pickup
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,32 +99,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 4526a86407f95894b9d00e13d5ebfc70, type: 3}
---- !u!114 &4130082742264104894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011379175792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4013cdac1e7cdd54b8106c09132b80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: a49fc17553c1a8247a04567025ca6e69, type: 2}
---- !u!114 &-1776946253312233813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011379175792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7d7e0f473f100418376bd426268e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: a49fc17553c1a8247a04567025ca6e69, type: 2}
 --- !u!135 &3936790033647240474
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -138,5 +110,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.99
+  m_Radius: 1.55
   m_Center: {x: 0, y: 0.0000000055879354, z: 0}

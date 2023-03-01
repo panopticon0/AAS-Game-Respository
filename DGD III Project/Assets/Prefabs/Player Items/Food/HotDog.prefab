@@ -12,12 +12,10 @@ GameObject:
   - component: {fileID: 33000011170849486}
   - component: {fileID: 23000011027012488}
   - component: {fileID: 5402420234833250151}
-  - component: {fileID: 1474355471947832196}
-  - component: {fileID: 2061226108060840409}
   - component: {fileID: -6684587902962352516}
   m_Layer: 0
   m_Name: HotDog
-  m_TagString: Pickup
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,32 +99,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 262d1a6f513ed5b4fb329e79b124e2cf, type: 3}
---- !u!114 &1474355471947832196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013939694586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4013cdac1e7cdd54b8106c09132b80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 6250d60af574ab041b2cd19976bd21ea, type: 2}
---- !u!114 &2061226108060840409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013939694586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7d7e0f473f100418376bd426268e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 6250d60af574ab041b2cd19976bd21ea, type: 2}
 --- !u!135 &-6684587902962352516
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -138,5 +110,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.99
+  m_Radius: 1.55
   m_Center: {x: 0, y: 0.0000000055879354, z: 0}

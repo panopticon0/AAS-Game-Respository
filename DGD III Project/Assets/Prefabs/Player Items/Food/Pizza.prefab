@@ -12,12 +12,10 @@ GameObject:
   - component: {fileID: 33000011987659710}
   - component: {fileID: 23000013623815384}
   - component: {fileID: 1063226733852902198}
-  - component: {fileID: -9214648012044608187}
-  - component: {fileID: -1582760765323568425}
   - component: {fileID: -6266512507448176625}
   m_Layer: 0
   m_Name: Pizza
-  m_TagString: Pickup
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,32 +99,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fec52ddeae99a0745bc188805ff2c7c1, type: 3}
---- !u!114 &-9214648012044608187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000012023308628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4013cdac1e7cdd54b8106c09132b80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 0269ef3a4030e714f8ae195768e38964, type: 2}
---- !u!114 &-1582760765323568425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000012023308628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7d7e0f473f100418376bd426268e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 0269ef3a4030e714f8ae195768e38964, type: 2}
 --- !u!135 &-6266512507448176625
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -138,5 +110,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.99
+  m_Radius: 1.55
   m_Center: {x: 0, y: 0.0000000055879354, z: 0}

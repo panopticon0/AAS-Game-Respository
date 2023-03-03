@@ -30,6 +30,12 @@ public class Head : MonoBehaviour
     private int target = 0;
 
     public GameObject player;
+    public GameObject camera;
+    //camera object
+    public Transform pos1;
+    //default position of the camera object
+    public Transform pos2;
+    //dynamic aiming position of the camera object
     public List<GameObject> bullet = new List<GameObject>();
     //what items the player has
     public List<bool> have = new List<bool>();
@@ -113,8 +119,17 @@ public class Head : MonoBehaviour
             {
                 target--;
             }
-        
-        }if (select < 0)
+            if (Vector3.Distance(pos2.position, camera.transform.position) >= .001f)
+            {
+                camera.transform.position = Vector3.MoveTowards(camera.transform.position, pos2.position, 8.0f * Time.deltaTime);
+                //if holding left shift and camera is not at position 2, move camera to position 2
+            }
+        } else if (Vector3.Distance(pos1.position, camera.transform.position) >= .001f)
+        {
+            camera.transform.position = Vector3.MoveTowards(camera.transform.position, pos1.position, 8.0f * Time.deltaTime);
+            //if not holding left shift and camera is not at position1, move camera to position 1
+        }
+        if (select < 0)
         {
             select = bullet.Count - 1;
         }

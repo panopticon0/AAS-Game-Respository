@@ -55,20 +55,21 @@ public class Player : MonoBehaviour
         {
 
             playerAnim.SetFloat("vertical", 1.0f);
+            if (Input.GetKey(KeyCode.RightShift))
+            {
+                //Right Shift to activate run animation and increase speed
+                playerAnim.SetBool("running", true);
+                speed = 7.5f;
+
+            } else
+            {
+                playerAnim.SetBool("running", false);
+                speed = 5.0f;
+            }
         }
         else
         {
             playerAnim.SetFloat("vertical", 0.0f);
-        }
-        //Left Shift to activate run animation and increase speed
-        if (Input.GetKey(KeyCode.RightShift))
-        {
-            playerAnim.SetBool("running", true);
-            speed = 7.5f;
-
-        }
-        else if (Input.GetKeyUp(KeyCode.RightShift))
-        {
             playerAnim.SetBool("running", false);
             speed = 5.0f;
         }

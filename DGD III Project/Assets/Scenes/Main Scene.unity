@@ -1268,6 +1268,9 @@ MonoBehaviour:
   upperX: 90
   lowerX: 345
   player: {fileID: 1738481865}
+  camera: {fileID: 1184439094}
+  pos1: {fileID: 0}
+  pos2: {fileID: 0}
   bullet:
   - {fileID: 0}
   - {fileID: 0}
@@ -18317,6 +18320,9 @@ MonoBehaviour:
   upperX: 90
   lowerX: 345
   player: {fileID: 1738481865}
+  camera: {fileID: 0}
+  pos1: {fileID: 0}
+  pos2: {fileID: 0}
   bullet:
   - {fileID: 0}
   - {fileID: 0}

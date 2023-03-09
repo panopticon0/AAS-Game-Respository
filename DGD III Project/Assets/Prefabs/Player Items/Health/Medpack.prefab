@@ -258,12 +258,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592407904950478658}
-  - component: {fileID: 9140165308460428210}
-  - component: {fileID: 872725431419399535}
   - component: {fileID: 137005687067011246}
+  - component: {fileID: -6119801378319374460}
   m_Layer: 0
   m_Name: Medpack
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -286,32 +285,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9140165308460428210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278503215280054602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4013cdac1e7cdd54b8106c09132b80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: ed89616cf3a4bb141b09cb7a5683be5e, type: 2}
---- !u!114 &872725431419399535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278503215280054602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7d7e0f473f100418376bd426268e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: ed89616cf3a4bb141b09cb7a5683be5e, type: 2}
 --- !u!65 &137005687067011246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -324,4 +297,17 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &-6119801378319374460
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278503215280054602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.99
   m_Center: {x: 0, y: 0, z: 0}

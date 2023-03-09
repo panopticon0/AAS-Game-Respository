@@ -9,13 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4441627224141016}
-  - component: {fileID: -1775366164364624853}
-  - component: {fileID: 6451171643202485931}
   - component: {fileID: 5374999814716917738}
   - component: {fileID: 8763999369819300236}
   m_Layer: 0
   m_Name: Can_cola 2 prefab
-  m_TagString: Pickup
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,32 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1775366164364624853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618410705010438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4013cdac1e7cdd54b8106c09132b80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 9d3a542c6d1a2a142914a3a5f61b8581, type: 2}
---- !u!114 &6451171643202485931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618410705010438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7d7e0f473f100418376bd426268e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 9d3a542c6d1a2a142914a3a5f61b8581, type: 2}
 --- !u!65 &5374999814716917738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71,7 +43,7 @@ BoxCollider:
   m_GameObject: {fileID: 1618410705010438}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -83,10 +55,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618410705010438}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.99
+  m_Radius: 1.55
   m_Center: {x: 0, y: 0.0000000055879354, z: 0}
 --- !u!1 &1790248644995326
 GameObject:

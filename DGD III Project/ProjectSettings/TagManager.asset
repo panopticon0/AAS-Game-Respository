@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Bullet
   - Pickup
+  - Food
+  - Health
   layers:
   - Default
   - TransparentFX

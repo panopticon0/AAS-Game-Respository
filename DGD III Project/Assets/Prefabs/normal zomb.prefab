@@ -726,8 +726,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.0068893, z: 1}
-  m_Center: {x: 0, y: 0.95715594, z: 0}
+  m_Size: {x: 1, y: 2.0068893, z: 1.2168417}
+  m_Center: {x: 0, y: 0.95715594, z: -0.019878864}
 --- !u!114 &5785825984960314637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb689e2431bd304e9e34ddadff79f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2.5
   range: 10
   kill: 0
   enemyAnim: {fileID: 0}
@@ -752,11 +753,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6668155142093267585}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 9ca7004eabfc0ce47801c4003c642084, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 79309817b3fc8f84ca2a8d8845f0c991, type: 3}
   m_Controller: {fileID: 9100000, guid: 42617d69888f8484c9d3d1883046838d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

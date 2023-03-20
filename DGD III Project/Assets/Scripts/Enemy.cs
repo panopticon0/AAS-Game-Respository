@@ -65,12 +65,25 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log(health);
         }
-        else if (other.gameObject.tag == "Player")
+
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
         {
             Debug.Log("Attacking!");
             enemyAnim.SetBool("attacking", true);
         }
+    }
 
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+       
+            enemyAnim.SetBool("attacking", false);
+        }
     }
 
 

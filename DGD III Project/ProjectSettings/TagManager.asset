@@ -11,6 +11,7 @@ TagManager:
   - Food
   - Health
   - Plank
+  - Boat
   layers:
   - Default
   - TransparentFX

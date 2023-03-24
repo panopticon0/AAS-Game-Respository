@@ -107,7 +107,7 @@ public class Head : MonoBehaviour
         {
             if (enemies[target].GetComponent<Enemy>().kill == false)
             {
-                transform.LookAt(enemies[target].transform);
+                transform.LookAt(enemies[target].GetComponent<Enemy>().head.position);
             } else
             {
                 target++;

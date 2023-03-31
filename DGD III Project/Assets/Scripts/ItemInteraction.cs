@@ -8,6 +8,7 @@ public class ItemInteraction : MonoBehaviour
 
     public TextMeshProUGUI itemText;
     public GameObject textObj;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,10 @@ public class ItemInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerStay(Collider collision)
     {
       
         if (collision.gameObject.tag == "Food")
@@ -29,11 +30,13 @@ public class ItemInteraction : MonoBehaviour
             itemText.text = "Press E to Eat";
             itemText.enabled = true;
 
+
         } else if (collision.gameObject.tag == "Health")
         {
 
             itemText.text = "Press E to Use";
             itemText.enabled = true;
+            
 
         } else if (collision.gameObject.tag == "Plank")
         {
@@ -51,6 +54,6 @@ public class ItemInteraction : MonoBehaviour
         {
             itemText.enabled = false;
         }
-    }
+    } 
 }
 

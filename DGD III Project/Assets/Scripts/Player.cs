@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class Player : MonoBehaviour
     private bool invi = false;
     public float timer = 5f;
     public float gravMultiplier = 2f;
+    public TextMeshProUGUI itemText;
+    public GameObject textObj;
+    public bool itemConsume = false;
+    public bool consumed = false;
+    
 
 
     // Start is called before the first frame update
@@ -23,6 +29,7 @@ public class Player : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
+        itemText = textObj.GetComponent<TextMeshProUGUI>();
     }
 
     public void FixedUpdate()
@@ -84,6 +91,14 @@ public class Player : MonoBehaviour
                 Debug.Log("invi set to" + invi);
             }
         }
+
+        //Player presses E to consume item
+        if (itemConsume == true && Input.GetKeyDown(KeyCode.E))
+        {
+                Debug.Log("Health gain");
+                health = health + 3.0f;
+                consumed = true;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -107,6 +122,7 @@ public class Player : MonoBehaviour
             head.GetComponent<Head>().have[int.Parse(collision.gameObject.name, System.Globalization.NumberStyles.Integer)] = true;
             Destroy(collision.gameObject);
         }
+
     }
 
     void OnCollisionExit(Collision collision2)
@@ -116,4 +132,59 @@ public class Player : MonoBehaviour
             onGround = false;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Food" || other.gameObject.tag == "Health" || other.gameObject.tag == "Plank")
+        {
+            itemConsume = true;
+            consumed = false;
+
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Food" || other.gameObject.tag == "Health" || other.gameObject.tag == "Plank")
+        {
+            itemText.enabled = false;
+            itemConsume = false;
+            consumed = false;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Food")
+        {
+
+            itemText.text = "Press E to Eat";
+            itemText.enabled = true;
+
+
+        }
+        else if (other.gameObject.tag == "Health")
+        {
+
+            itemText.text = "Press E to Use";
+            itemText.enabled = true;
+
+
+        }
+        else if (other.gameObject.tag == "Plank")
+        {
+
+            itemText.text = "Press E to Collect";
+            itemText.enabled = true;
+
+        }
+
+        if (consumed == true && (other.gameObject.tag == "Food" || other.gameObject.tag == "Health" || other.gameObject.tag == "Plank"))
+        {
+            itemText.enabled = false;
+            Destroy(other.gameObject);
+        }
+    }
+
+
 }

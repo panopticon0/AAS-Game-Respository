@@ -6,9 +6,12 @@ using UnityEngine.Playables;
 public class OutroTimelineActive : MonoBehaviour
 {
     public PlayableDirector director;
-    public GameObject playerObject;
-    public GameObject playerCamera;
-
+    public GameObject playerObj;
+    public GameObject playerCam;
+    public GameObject outroCam;
+    public GameObject boat;
+    public GameObject boatOutro;
+    public Player playerScript;
 
     private void Awake()
     {
@@ -19,15 +22,18 @@ public class OutroTimelineActive : MonoBehaviour
 
     private void Director_Stopped(PlayableDirector obj)
     {
-        playerObject.SetActive(true);
-        playerCamera.SetActive(true);
+
 
     }
 
     private void Director_Played(PlayableDirector obj)
     {
-        playerObject.SetActive(false);
-        playerCamera.SetActive(false);
+        playerObj.SetActive(false);
+        playerCam.SetActive(false);
+        outroCam.SetActive(true);
+        boat.SetActive(false);
+        boatOutro.SetActive(true);
+
     }
 
     public void StartTimeline()

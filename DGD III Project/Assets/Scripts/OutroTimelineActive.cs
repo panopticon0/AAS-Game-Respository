@@ -11,6 +11,7 @@ public class OutroTimelineActive : MonoBehaviour
     public GameObject outroCam;
     public GameObject boat;
     public GameObject boatOutro;
+    public int plankNum;
     public Player playerScript;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class OutroTimelineActive : MonoBehaviour
         director = GetComponent<PlayableDirector>();
         director.played += Director_Played;
         director.stopped += Director_Stopped;
+        playerScript = playerObj.GetComponent<Player>();
     }
 
     private void Director_Stopped(PlayableDirector obj)

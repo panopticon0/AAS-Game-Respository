@@ -17,10 +17,12 @@ public class Player : MonoBehaviour
     private bool invi = false;
     public float timer = 5f;
     public float gravMultiplier = 2f;
+    public int planks = 0;
     public TextMeshProUGUI itemText;
     public GameObject textObj;
     public bool itemConsume = false;
     public bool consumed = false;
+    public bool plankCollect = false;
     
 
 
@@ -95,9 +97,14 @@ public class Player : MonoBehaviour
         //Player presses E to consume item
         if (itemConsume == true && Input.GetKeyDown(KeyCode.E))
         {
-                Debug.Log("Health gain");
                 health = health + 3.0f;
                 consumed = true;
+        } 
+        
+        if (plankCollect == true && Input.GetKeyDown(KeyCode.E))
+        {
+            planks++;
+            consumed = true;
         }
     }
 
@@ -135,22 +142,37 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Food" || other.gameObject.tag == "Health" || other.gameObject.tag == "Plank")
+        if (other.gameObject.tag == "Food" || other.gameObject.tag == "Health")
         {
             itemConsume = true;
             consumed = false;
+            plankCollect = false;
+        }
 
+        if (other.gameObject.tag == "Plank")
+        {
+            plankCollect = true;
+            consumed = false;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Food" || other.gameObject.tag == "Health" || other.gameObject.tag == "Plank")
+        if (other.gameObject.tag == "Food" || other.gameObject.tag == "Health")
         {
             itemText.enabled = false;
             itemConsume = false;
             consumed = false;
         }
+        
+        if (other.gameObject.tag == "Plank")
+        {
+            itemText.enabled = false;
+            itemConsume = false;
+            consumed = false;
+            plankCollect = false;
+        }
+
     }
 
     void OnTriggerStay(Collider other)
@@ -184,6 +206,7 @@ public class Player : MonoBehaviour
             itemText.enabled = false;
             Destroy(other.gameObject);
         }
+
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class Player : MonoBehaviour
 {
 
@@ -18,11 +19,15 @@ public class Player : MonoBehaviour
     public float timer = 5f;
     public float gravMultiplier = 2f;
     public int planks = 0;
+    public bool planksComplete = false;
     public TextMeshProUGUI itemText;
     public GameObject textObj;
     public bool itemConsume = false;
     public bool consumed = false;
     public bool plankCollect = false;
+
+    public TextMeshProUGUI endTriggerText;
+    public GameObject endButton;
     
 
 
@@ -32,6 +37,7 @@ public class Player : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         itemText = textObj.GetComponent<TextMeshProUGUI>();
+
     }
 
     public void FixedUpdate()
@@ -173,6 +179,12 @@ public class Player : MonoBehaviour
             plankCollect = false;
         }
 
+        if (other.gameObject.tag == "EndingTrigger")
+        {
+            endTriggerText.enabled = false;
+            endButton.SetActive(false);
+        }
+
     }
 
     void OnTriggerStay(Collider other)
@@ -205,6 +217,25 @@ public class Player : MonoBehaviour
         {
             itemText.enabled = false;
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "EndingTrigger")
+        {
+            endButton.SetActive(true);
+            endTriggerText.enabled = true;
+
+            if (planks >= 12)
+            {
+                planksComplete = true;
+                endButton.SetActive(true);
+                endTriggerText.enabled = false;
+
+            } else
+            {
+                endButton.SetActive(false);
+                endTriggerText.enabled = true;
+                endTriggerText.text = "You need " + (12 - planks) + " more planks to escape!";
+            }
         }
 
     }

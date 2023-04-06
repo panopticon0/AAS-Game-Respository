@@ -12,6 +12,7 @@ TagManager:
   - Health
   - Plank
   - Boat
+  - EndingTrigger
   layers:
   - Default
   - TransparentFX

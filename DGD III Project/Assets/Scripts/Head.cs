@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public Text bulletDisplay;
 
 public class Head : MonoBehaviour   
 {
@@ -77,6 +78,11 @@ public class Head : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    bulletDisplay.text = "AMMO: " + stock[(int)select].ToString();
+        if(stock[(int)select] == 0)
+        {
+             bulletDisplay.text = "AMMO: Reloading";
+        } 
         //head rotation
         camSpeed = 3.0f;
         transform.position = player.transform.position + new Vector3(0.0f, 2.0f, 0.0f);

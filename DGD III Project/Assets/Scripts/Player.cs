@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     public TextMeshProUGUI endTriggerText;
     public GameObject endButton;
+    public HealthBar healthBar;
     
 
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         itemText = textObj.GetComponent<TextMeshProUGUI>();
+        healthBar.SetMaxHealth(health);
 
     }
 
@@ -125,6 +127,7 @@ public class Player : MonoBehaviour
             if (invi == false)
             {
                 health--;
+                healthBar.SetHealth(health);
                 invi = true;
                 Debug.Log(health + " invi set to true");
             }

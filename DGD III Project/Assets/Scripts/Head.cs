@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public Text bulletDisplay;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class Head : MonoBehaviour   
 {
     public float camSpeed = 3.0f;
     public float upperX = 90.0f;
     public float lowerX = 345.0f;
+    public TextMeshProUGUI bulletDisplay;
 
     //how long it takes to fire another shot
     private List<float> recoil = new List<float>();
@@ -29,6 +32,8 @@ public class Head : MonoBehaviour
     private float range = 10.0f;
     private List<GameObject> enemies = new List<GameObject>();
     private int target = 0;
+
+    public Transform bulletPosition;
 
     public GameObject player;
     public GameObject camera;
@@ -175,12 +180,12 @@ public class Head : MonoBehaviour
             {
                 for (int i = 0; i < bulletLoadout; i++)
                 {
-                    Instantiate(bullet[(int)select], transform.position, transform.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
+                    Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
                 }
             }
             else
             {
-                Instantiate(bullet[(int)select], transform.position, transform.rotation);
+                Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation);
             }
             recover[(int)select] = 0.0f;
             stock[(int)select] -= 1;

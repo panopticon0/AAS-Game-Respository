@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public Rigidbody playerRb;
     public Animator playerAnim;
     public GameObject head;
-    public float health = 5.0f;
+    public float playerHealth = 5.0f;
     private bool invi = false;
     public float timer = 5f;
     public float gravMultiplier = 2f;
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public bool itemConsume = false;
     public bool consumed = false;
     public bool plankCollect = false;
+    public TextMeshProUGUI plankText;
 
     public TextMeshProUGUI endTriggerText;
     public GameObject endButton;
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         itemText = textObj.GetComponent<TextMeshProUGUI>();
-        healthBar.SetMaxHealth(health);
+        healthBar.SetMaxHealth(playerHealth);
 
     }
 
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(horizontalInput * speed, 0, verticalInput * speed) * Time.deltaTime);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, head.transform.eulerAngles.y, transform.eulerAngles.z);
 
-
+        healthBar.SetHealth(playerHealth);
 
 
         if (Input.GetKeyDown("space") && onGround == true)
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour
         //Player presses E to consume item
         if (itemConsume == true && Input.GetKeyDown(KeyCode.E))
         {
-                health = health + 3.0f;
+            playerHealth = playerHealth + 3.0f;
                 consumed = true;
         } 
         
@@ -114,6 +115,8 @@ public class Player : MonoBehaviour
             planks++;
             consumed = true;
         }
+
+        plankText.text = "PLANKS: " + (planks);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -126,10 +129,10 @@ public class Player : MonoBehaviour
         {
             if (invi == false)
             {
-                health--;
-                healthBar.SetHealth(health);
+                playerHealth--;
+                healthBar.SetHealth(playerHealth);
                 invi = true;
-                Debug.Log(health + " invi set to true");
+                Debug.Log(playerHealth + " invi set to true");
             }
         } if (collision.gameObject.tag == "Pickup")
         {

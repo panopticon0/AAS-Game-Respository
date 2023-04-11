@@ -90,7 +90,7 @@ Material:
     - _cutoffTemp: 0
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 11.984314, g: 11.984314, b: 11.984314, a: 1}
+    - _Color: {r: 11.984314, g: 11.984314, b: 11.984314, a: 0.41960785}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EdgeColor1: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}

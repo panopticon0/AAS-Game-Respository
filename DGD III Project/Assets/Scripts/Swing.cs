@@ -5,7 +5,7 @@ using UnityEngine;
 public class Swing : MonoBehaviour
 {
     private float speed = 5.0f;
-    private float timer = 0.5f;
+    private float timer = 0.25f;
     public float damage = 2f;
     private Transform player;
 

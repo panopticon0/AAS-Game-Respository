@@ -43,6 +43,7 @@ public class Head : MonoBehaviour
     public int[] weaponLayers = { 0, 1, 2, 3, 4 };
     public List<GameObject> weapons = new List<GameObject>();
     public string[] weaponNames = { "Pistol", "Flintlock", "Assault Rifle", "Shotgun", "Katana" };
+    public GameObject particleFlash;
 
         public GameObject player;
         public GameObject camera;
@@ -203,11 +204,13 @@ public class Head : MonoBehaviour
                     for (int i = 0; i < bulletLoadout; i++)
                     {
                         Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
+                        Instantiate(particleFlash, bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
                     }
                 }
                 else
                 {
                     Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation);
+                    Instantiate(particleFlash, bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
                 }
                 recover[(int)select] = 0.0f;
                 stock[(int)select] -= 1;

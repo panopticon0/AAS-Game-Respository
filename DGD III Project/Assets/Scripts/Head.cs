@@ -162,35 +162,8 @@ public class Head : MonoBehaviour
             {
                 select = 0;
             }
-            select += Input.mouseScrollDelta.y;
+            changeWeapon();
             weaponSwitch();
-       
-        //if weapon is marked as false, automatically scroll through weapons until you pick one that is true.
-        while (have[(int)select] == false)
-            {
-                if (Input.mouseScrollDelta.y > 0)
-                {
-                    select++;
-                
-                }
-                else
-                {
-                    select--;
-                
-                }
-                if (select < 0)
-                {
-                    select = bullet.Count - 1;
-                
-                }
-                if (select >= bullet.Count)
-                {
-                    select = 0;
-                
-                }
-            
-
-            }
         //shooting bullets
         if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])
             {
@@ -250,6 +223,38 @@ public class Head : MonoBehaviour
                 }
             }
         }
+        
+        private void changeWeapon()
+        {
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                if (select + 1f >= bullet.Count)
+                {
+                    select = 0;
+                }
+                else
+                {
+                    select++;
+                }
+            }
+            else if (Input.mouseScrollDelta.y < 0)
+            {
+                if (select - 1f < 0)
+                {
+                    select = bullet.Count - 1;
+                }
+                else
+                {
+                    select--;
+                }
+            }
+            //if weapon is marked as false, automatically scroll through weapons until you pick one that is true.
+            while (have[(int)select] == false)
+            {
+                changeWeapon();
+            }
+        }
+        
         private void checkRange()
         {
             //check for enemy out of range or deleted

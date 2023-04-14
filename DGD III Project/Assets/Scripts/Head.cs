@@ -89,6 +89,8 @@ public class Head : MonoBehaviour
 
             //set initial gun to true, have at least one weapon at all times
             have[0] = true;
+            
+            Cursor.visible = false;
         }
 
         // Update is called once per frame

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 
 
@@ -12,6 +13,9 @@ public class IntroTimelineActive : MonoBehaviour
     public GameObject playerCamera;
     public GameObject FPVCamera;
     public GameObject canvas;
+    public GameObject plane;
+    public GameObject plane2;
+
 
     private void Awake()
     {
@@ -29,8 +33,12 @@ public class IntroTimelineActive : MonoBehaviour
         playerObject.SetActive(true);
         playerCamera.SetActive(true);
         canvas.SetActive(true);
-        Destroy(gameObject);
+        Destroy(plane);
+        Destroy(plane2);
+
         Destroy(FPVCamera);
+        Destroy(gameObject);
+        
     }
 
     private void Director_Played(PlayableDirector obj)

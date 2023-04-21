@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class NoteInteraction : MonoBehaviour
 {
@@ -9,11 +10,12 @@ public class NoteInteraction : MonoBehaviour
     public TextMeshProUGUI triggerText;
     public GameObject imageCanvas;
     public bool note;
+    public Button exitButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -43,8 +45,11 @@ public class NoteInteraction : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             triggerText.enabled = false;
-            Cursor.visible = false;
             note = false;
+            if(imageCanvas.active == false)
+            {
+                Cursor.visible = false;
+            }
         }
     }
 }

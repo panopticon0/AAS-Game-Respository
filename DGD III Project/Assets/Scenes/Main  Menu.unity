@@ -356,18 +356,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &666470827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 163}
-  m_SizeDelta: {x: 546, y: 1.3}
+  m_AnchoredPosition: {x: 0, y: 219.8}
+  m_SizeDelta: {x: 850.4, y: 1.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916143094
 MonoBehaviour:
@@ -709,8 +697,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 83
-  m_fontSizeBase: 83
+  m_fontSize: 132.5
+  m_fontSizeBase: 132.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

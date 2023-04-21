@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
             {
                 //Right Shift to activate run animation and increase speed
                 playerAnim.SetBool("running", true);
-                speed = 7.5f;
+                speed = 8.0f;
 
             } else
             {
@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
         {
             planks++;
             consumed = true;
+            plankCollect = false;
         }
 
         plankText.text = "PLANKS: " + (planks);
@@ -235,6 +236,7 @@ public class Player : MonoBehaviour
                 planksComplete = true;
                 endButton.SetActive(true);
                 endTriggerText.enabled = false;
+                Cursor.visible = true;
 
             } else
             {
@@ -243,6 +245,8 @@ public class Player : MonoBehaviour
                 endTriggerText.text = "You need " + (12 - planks) + " more planks to escape!";
             }
         }
+
+       
 
     }
 

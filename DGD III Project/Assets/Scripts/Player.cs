@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && onGround == true)
         {
             playerRb.AddForce(0, thrust, 0, ForceMode.Impulse);
+            playerAnim.Play("rig|rig|rig|jump");
         }
 
 

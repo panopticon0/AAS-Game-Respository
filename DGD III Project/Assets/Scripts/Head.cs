@@ -300,7 +300,7 @@ public class Head : MonoBehaviour
             int number = weapons.IndexOf(weapon);
             if ( number != (int)select)
             {
-               weapons[number].active = false;
+               weapons[number].SetActive(false);
             }
         }
 

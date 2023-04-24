@@ -13,6 +13,7 @@ TagManager:
   - Plank
   - Boat
   - EndingTrigger
+  - weapons
   layers:
   - Default
   - TransparentFX

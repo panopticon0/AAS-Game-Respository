@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Animations.Rigging;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
@@ -14,7 +17,7 @@ public class Player : MonoBehaviour
     public Rigidbody playerRb;
     public Animator playerAnim;
     public GameObject head;
-    public float playerHealth = 5.0f;
+    public float playerHealth = 20.0f;
     private bool invi = false;
     public float timer = 5f;
     public float gravMultiplier = 2f;
@@ -28,8 +31,12 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI plankText;
 
     public TextMeshProUGUI endTriggerText;
+    public GameObject deathPanel;
     public GameObject endButton;
     public HealthBar healthBar;
+
+    private RigBuilder rigBuilder;
+
     
 
 
@@ -40,6 +47,7 @@ public class Player : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         itemText = textObj.GetComponent<TextMeshProUGUI>();
         healthBar.SetMaxHealth(playerHealth);
+        rigBuilder = GetComponent<RigBuilder>();
 
     }
 
@@ -54,9 +62,11 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-
-        transform.Translate(new Vector3(horizontalInput * speed, 0, verticalInput * speed) * Time.deltaTime);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, head.transform.eulerAngles.y, transform.eulerAngles.z);
+        if (playerHealth > 0)
+        {
+            transform.Translate(new Vector3(horizontalInput * speed, 0, verticalInput * speed) * Time.deltaTime);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, head.transform.eulerAngles.y, transform.eulerAngles.z);
+        }
 
         healthBar.SetHealth(playerHealth);
 
@@ -64,13 +74,25 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && onGround == true)
         {
             playerRb.AddForce(0, thrust, 0, ForceMode.Impulse);
-            playerAnim.Play("rig|rig|rig|jump");
+            playerAnim.SetBool("jumping", true);
+        } else
+        {
+            playerAnim.SetBool("jumping", false);
+
+        }
+
+        //death sequence
+        if (playerHealth <= 0)
+        {
+            playerAnim.SetBool("dead", true);
+            GameObject.Find("HeadCube (1)").GetComponent<Head>().enabled = false;
+            rigBuilder.enabled = false;
+            deathPanel.SetActive(true);
         }
 
 
-
         //Animation code
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if ( Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) )
         {
 
             playerAnim.SetFloat("vertical", 1.0f);
@@ -84,6 +106,7 @@ public class Player : MonoBehaviour
             {
                 playerAnim.SetBool("running", false);
                 speed = 5.0f;
+              
             }
         }
         else
@@ -251,5 +274,20 @@ public class Player : MonoBehaviour
 
     }
 
+    public void respawn()
+    {
+        playerHealth = 20.0f;
+    }
+
+    public void restartScene()
+    {
+        SceneManager.LoadScene("Main city-forest");
+    }
+
+    public void quit()
+    {
+        Application.Quit();
+
+    }
 
 }

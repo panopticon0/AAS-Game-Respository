@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
 
     private RigBuilder rigBuilder;
+    [SerializeField] private AudioSource collectionSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
+
 
     
 
@@ -152,6 +155,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
+            deathSoundEffect.Play();
             if (invi == false)
             {
                 playerHealth--;
@@ -164,6 +168,7 @@ public class Player : MonoBehaviour
             //if the collision is registered as a pickup item, get the name of the collision, check what integer it is named as and mark it in the array as true
             //ex. if collide with a pickup item named "1", have[1] in head script will be marked true
             head.GetComponent<Head>().have[int.Parse(collision.gameObject.name, System.Globalization.NumberStyles.Integer)] = true;
+            collectionSoundEffect.Play();
             Destroy(collision.gameObject);
         }
 

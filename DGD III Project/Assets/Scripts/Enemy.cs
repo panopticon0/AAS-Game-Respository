@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public float gravityValue = 3f;
     public float gravityMultiplier = 1.1f;
     public float enemyYVelocity = 3f;
+    [SerializeField] private AudioSource ZombieAttack;
     // Start is called before the first frame update
     void Start()
     {
@@ -95,6 +96,8 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Attacking!");
             enemyAnim.SetBool("attacking", true);
+            ZombieAttack.Play();
+
         }
     }
 

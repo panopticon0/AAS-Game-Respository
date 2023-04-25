@@ -33,20 +33,23 @@ public class Enemy : MonoBehaviour
     {
         Vector3 direction = player.position - transform.position;
         Vector3 velocity = direction * speed;
+
         float gravity = gravityValue * gravityMultiplier * Time.deltaTime;
         float distance = Vector3.Distance(player.position, transform.position);
-        if (enemyAI.isGrounded)
-        {
-                
-        } else
-        {
-            enemyYVelocity -= gravity;
-        }
-        velocity.y = enemyYVelocity;
-        velocity.Normalize();
+        
         if (distance <= range)
         {
+            if (enemyAI.isGrounded)
+            {
+                Debug.Log("True " + enemyYVelocity);
+                enemyYVelocity = 0f;
+            } else
+            {
+                enemyYVelocity -= gravity;
+            }
+            velocity.y = enemyYVelocity;
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            velocity.Normalize();
             enemyAnim.SetBool("playerDetected", true);
             enemyAI.Move(speed * velocity * Time.deltaTime);
         } else
@@ -57,6 +60,15 @@ public class Enemy : MonoBehaviour
                 direction = startPos - transform.position;
                 velocity = direction * speed;
                 enemyAnim.SetBool("playerDetected", true);
+                if (enemyAI.isGrounded)
+                {
+                    enemyYVelocity = 0f;
+                }
+                else
+                {
+                    enemyYVelocity -= gravity;
+                }
+                velocity.y = enemyYVelocity;
                 transform.LookAt(new Vector3(startPos.x, transform.position.y, startPos.z));
                 velocity.Normalize();
                 enemyAI.Move(speed * velocity * Time.deltaTime);

@@ -16,6 +16,9 @@ public class Head : MonoBehaviour
     public float lowerX = 345.0f;
     public TextMeshProUGUI bulletDisplay;
     public TextMeshProUGUI weaponText;
+    
+    [SerializeField] private AudioSource shotsSoundEffect;
+    [SerializeField] private AudioSource reloadSoundEffect;
 
     //how long it takes to fire another shot
     private List<float> recoil = new List<float>();
@@ -100,6 +103,7 @@ public class Head : MonoBehaviour
             if (stock[(int)select] == 0)
             {
                 bulletDisplay.text = "AMMO: Reloading";
+                reloadSoundEffect.Play();
             }
             //head rotation
             camSpeed = 3.0f;
@@ -169,6 +173,7 @@ public class Head : MonoBehaviour
         //shooting bullets
         if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])
             {
+                shotsSoundEffect.Play();
                 if (select == 4)
                 {
                     GameObject punch = Instantiate(bullet[(int)select], player.transform, false);

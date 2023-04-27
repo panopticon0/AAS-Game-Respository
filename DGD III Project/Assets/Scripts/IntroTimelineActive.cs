@@ -39,6 +39,10 @@ public class IntroTimelineActive : MonoBehaviour
         Destroy(FPVCamera);
         Destroy(gameObject);
         
+        GameObject[] Spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        foreach (GameObject spawner in Spawners) {
+            spawner.GetComponent<enemySpawn>().spawn = true;
+        }
     }
 
     private void Director_Played(PlayableDirector obj)

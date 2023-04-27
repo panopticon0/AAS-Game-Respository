@@ -14,6 +14,7 @@ TagManager:
   - Boat
   - EndingTrigger
   - weapons
+  - Spawner
   layers:
   - Default
   - TransparentFX

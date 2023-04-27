@@ -46,7 +46,7 @@ public class NoteInteraction : MonoBehaviour
         {
             triggerText.enabled = false;
             note = false;
-            if(imageCanvas.active == false)
+            if(imageCanvas.activeInHierarchy == false)
             {
                 Cursor.visible = false;
             }

@@ -265,6 +265,7 @@ MonoBehaviour:
   triggerText: {fileID: 0}
   imageCanvas: {fileID: 3939594022556509426}
   note: 0
+  exitButton: {fileID: 7888688769176396220}
 --- !u!1 &3451997037280762938
 GameObject:
   m_ObjectHideFlags: 0

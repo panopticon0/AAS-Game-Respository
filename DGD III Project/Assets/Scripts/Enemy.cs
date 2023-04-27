@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -31,37 +32,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        Vector3 velocity = direction * speed;
+      
+            Vector3 direction = player.position - transform.position;
+            Vector3 velocity = direction * speed;
 
-        float gravity = gravityValue * gravityMultiplier * Time.deltaTime;
-        float distance = Vector3.Distance(player.position, transform.position);
-        
-        if (distance <= range)
-        {
-            if (enemyAI.isGrounded)
+            float gravity = gravityValue * gravityMultiplier * Time.deltaTime;
+            float distance = Vector3.Distance(player.position, transform.position);
+
+            if (distance <= range)
             {
-                Debug.Log("True " + enemyYVelocity);
-                enemyYVelocity = 0f;
-            } else
-            {
-                enemyYVelocity -= gravity;
-            }
-            velocity.y = enemyYVelocity;
-            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-            velocity.Normalize();
-            enemyAnim.SetBool("playerDetected", true);
-            enemyAI.Move(speed * velocity * Time.deltaTime);
-        } else
-        {
-            enemyAnim.SetBool("playerDetected", false);
-            if (Vector3.Distance(startPos, transform.position) >= 2)
-            {
-                direction = startPos - transform.position;
-                velocity = direction * speed;
-                enemyAnim.SetBool("playerDetected", true);
                 if (enemyAI.isGrounded)
                 {
+                    Debug.Log("True " + enemyYVelocity);
                     enemyYVelocity = 0f;
                 }
                 else
@@ -69,11 +51,34 @@ public class Enemy : MonoBehaviour
                     enemyYVelocity -= gravity;
                 }
                 velocity.y = enemyYVelocity;
-                transform.LookAt(new Vector3(startPos.x, transform.position.y, startPos.z));
+                transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
                 velocity.Normalize();
+                enemyAnim.SetBool("playerDetected", true);
                 enemyAI.Move(speed * velocity * Time.deltaTime);
             }
-        }
+            else
+            {
+                enemyAnim.SetBool("playerDetected", false);
+                if (Vector3.Distance(startPos, transform.position) >= 2)
+                {
+                    direction = startPos - transform.position;
+                    velocity = direction * speed;
+                    enemyAnim.SetBool("playerDetected", true);
+                    if (enemyAI.isGrounded)
+                    {
+                        enemyYVelocity = 0f;
+                    }
+                    else
+                    {
+                        enemyYVelocity -= gravity;
+                    }
+                    velocity.y = enemyYVelocity;
+                    transform.LookAt(new Vector3(startPos.x, transform.position.y, startPos.z));
+                    velocity.Normalize();
+                    enemyAI.Move(speed * velocity * Time.deltaTime);
+                }
+            }
+
         if (health <= 0)
         {
             kill = true;

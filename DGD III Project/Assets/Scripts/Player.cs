@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     public float thrust = 4.0f;
     public float rotationSpeed;
-    public Rigidbody playerRb;
+    //public Rigidbody playerRb;
+    public CharacterController playerAI;
     public Animator playerAnim;
     public GameObject head;
     public float playerHealth = 20.0f;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     public bool consumed = false;
     public bool plankCollect = false;
     public TextMeshProUGUI plankText;
+    private float playerVelocity = 0f;
 
     public TextMeshProUGUI endTriggerText;
     public GameObject deathPanel;
@@ -46,7 +48,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
+        //playerRb = GetComponent<Rigidbody>();
+        playerAI = GetComponent<CharacterController>();
         playerAnim = GetComponent<Animator>();
         itemText = textObj.GetComponent<TextMeshProUGUI>();
         healthBar.SetMaxHealth(playerHealth);
@@ -56,7 +59,11 @@ public class Player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        GetComponent<Rigidbody>().AddForce(gravMultiplier * Physics.gravity, ForceMode.Acceleration);
+        //GetComponent<Rigidbody>().AddForce(gravMultiplier * Physics.gravity, ForceMode.Acceleration);
+        if (!playerAI.isGrounded)
+        {
+            playerVelocity -= 7.81f * Time.deltaTime;
+        }
     }
 
     // Update is called once per frame
@@ -67,22 +74,29 @@ public class Player : MonoBehaviour
 
         if (playerHealth > 0)
         {
-            transform.Translate(new Vector3(horizontalInput * speed, 0, verticalInput * speed) * Time.deltaTime);
+            if (playerAI.isGrounded)
+            {
+                if (Input.GetKeyDown("space"))
+                {
+                    playerVelocity += thrust;
+                    playerAnim.SetBool("jumping", true);
+                } else
+                {
+                    playerVelocity = 0f;
+                    playerAnim.SetBool("jumping", false);
+                }
+            }
+
+            //transform.Translate(new Vector3(horizontalInput * speed, prevVelocity, verticalInput * speed) * Time.deltaTime); ;
+            Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+            movement = transform.TransformDirection(movement);
+            movement.Normalize();
+            movement.y = playerVelocity;
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, head.transform.eulerAngles.y, transform.eulerAngles.z);
+            playerAI.Move(movement * Time.deltaTime * speed);
         }
 
         healthBar.SetHealth(playerHealth);
-
-
-        if (Input.GetKeyDown("space") && onGround == true)
-        {
-            playerRb.AddForce(0, thrust, 0, ForceMode.Impulse);
-            playerAnim.SetBool("jumping", true);
-        } else
-        {
-            playerAnim.SetBool("jumping", false);
-
-        }
 
         //death sequence
         if (playerHealth <= 0)

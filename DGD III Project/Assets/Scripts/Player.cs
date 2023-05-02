@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         {
 
             playerAnim.SetFloat("vertical", 1.0f);
-            if (Input.GetKey(KeyCode.RightShift))
+            if (Input.GetKey(KeyCode.LeftControl))
             {
                 //Right Shift to activate run animation and increase speed
                 playerAnim.SetBool("running", true);

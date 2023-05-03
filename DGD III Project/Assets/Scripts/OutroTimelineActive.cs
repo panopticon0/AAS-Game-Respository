@@ -28,7 +28,7 @@ public class OutroTimelineActive : MonoBehaviour
 
     private void Director_Stopped(PlayableDirector obj)
     {
-
+        Debug.Log("Stopped");
 
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class OutroTimelineActive : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class OutroTimelineActive : MonoBehaviour
 
     private void Director_Stopped(PlayableDirector obj)
     {
-        Debug.Log("Stopped");
+        SceneManager.LoadScene("Main  Menu", LoadSceneMode.Single);
 
     }
 

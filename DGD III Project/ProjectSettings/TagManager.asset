@@ -15,6 +15,7 @@ TagManager:
   - EndingTrigger
   - weapons
   - Spawner
+  - Melee
   layers:
   - Default
   - TransparentFX

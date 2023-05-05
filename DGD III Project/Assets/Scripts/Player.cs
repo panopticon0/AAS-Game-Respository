@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
+
 public class Player : MonoBehaviour
 {
 
@@ -177,14 +178,9 @@ public class Player : MonoBehaviour
                 invi = true;
                 Debug.Log(playerHealth + " invi set to true");
             }
-        } if (collision.gameObject.tag == "Pickup")
-        {
-            //if the collision is registered as a pickup item, get the name of the collision, check what integer it is named as and mark it in the array as true
-            //ex. if collide with a pickup item named "1", have[1] in head script will be marked true
-            head.GetComponent<Head>().have[int.Parse(collision.gameObject.name, System.Globalization.NumberStyles.Integer)] = true;
-            collectionSoundEffect.Play();
-            Destroy(collision.gameObject);
-        }
+        } 
+        
+       
 
     }
 
@@ -209,6 +205,16 @@ public class Player : MonoBehaviour
         {
             plankCollect = true;
             consumed = false;
+        }
+
+        if (other.gameObject.tag == "Pickup")
+        {
+            Debug.Log("Weapon");
+            //if the collision is registered as a pickup item, get the name of the collision, check what integer it is named as and mark it in the array as true
+            //ex. if collide with a pickup item named "1", have[1] in head script will be marked true
+            head.GetComponent<Head>().have[int.Parse(other.gameObject.name, System.Globalization.NumberStyles.Integer)] = true;
+            collectionSoundEffect.Play();
+            Destroy(other.gameObject);
         }
     }
 
@@ -293,10 +299,6 @@ public class Player : MonoBehaviour
 
     }
 
-    public void respawn()
-    {
-        playerHealth = 20.0f;
-    }
 
     public void restartScene()
     {

@@ -110,7 +110,7 @@ public class Head : MonoBehaviour
             transform.position = player.transform.position + new Vector3(0.0f, 2.0f, 0.0f);
             float verticalVInput = Input.GetAxis("Mouse Y");
             float horizontalVInput = Input.GetAxis("Mouse X");
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x + (camSpeed * verticalVInput), transform.eulerAngles.y, transform.eulerAngles.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x + (camSpeed * verticalVInput * -1), transform.eulerAngles.y, transform.eulerAngles.z);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + (camSpeed * horizontalVInput), transform.eulerAngles.z);
             if (transform.eulerAngles.x <= lowerX && transform.eulerAngles.x > upperX)
             {

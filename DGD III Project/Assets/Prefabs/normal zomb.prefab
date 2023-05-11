@@ -813,6 +813,7 @@ MonoBehaviour:
   kill: 0
   enemyAnim: {fileID: 0}
   head: {fileID: 2681636961982747410}
+  deathEffect: {fileID: 3208677609183904343, guid: a2b032030bc4a7149a93159cb19f08ae, type: 3}
   gravityValue: 14
   gravityMultiplier: 1.1
   enemyYVelocity: 3

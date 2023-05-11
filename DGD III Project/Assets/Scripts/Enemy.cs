@@ -15,11 +15,13 @@ public class Enemy : MonoBehaviour
     private Vector3 startPos;
     public Transform head;
     private CharacterController enemyAI;
+    public GameObject deathEffect;
 
     public float gravityValue = 3f;
     public float gravityMultiplier = 1.1f;
     public float enemyYVelocity = 3f;
     [SerializeField] private AudioSource ZombieAttack;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +88,7 @@ public class Enemy : MonoBehaviour
             deathTime -= Time.deltaTime;
         } if (deathTime < 0)
         {
+            Instantiate(deathEffect , transform.position, transform.rotation);
             Destroy(gameObject);
         }
         

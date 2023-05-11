@@ -100,119 +100,153 @@ public class Head : MonoBehaviour
             Cursor.visible = false;
         }
 
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
+    {
+        bulletDisplay.text = "AMMO: " + stock[(int)select].ToString();
+        if (stock[(int)select] == 0)
         {
-            bulletDisplay.text = "AMMO: " + stock[(int)select].ToString();
-            if (stock[(int)select] == 0)
+            bulletDisplay.text = "AMMO: Reloading";
+            reloadSoundEffect.Play();
+        }
+        //head rotation
+        camSpeed = 3.0f;
+        transform.position = player.transform.position + new Vector3(0.0f, 2.0f, 0.0f);
+        float verticalVInput = Input.GetAxis("Mouse Y");
+        float horizontalVInput = Input.GetAxis("Mouse X");
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x + (camSpeed * verticalVInput * -1), transform.eulerAngles.y, transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + (camSpeed * horizontalVInput), transform.eulerAngles.z);
+        if (transform.eulerAngles.x <= lowerX && transform.eulerAngles.x > upperX)
+        {
+            transform.eulerAngles = new Vector3(lowerX + 1, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
+        else if (transform.eulerAngles.x >= upperX && lowerX > transform.eulerAngles.x)
+        {
+            transform.eulerAngles = new Vector3(upperX - 1, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
+        //lock onto target
+        checkRange();
+        if (target >= enemies.Count)
+        {
+            target = 0;
+        }
+        if (target < 0)
+        {
+            target = enemies.Count - 1;
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && enemies.Count > 0 && enemies[target].GetComponent<Enemy>().kill == false)
+        {
+            if (enemies[target].GetComponent<Enemy>().kill == false)
             {
-                bulletDisplay.text = "AMMO: Reloading";
-                reloadSoundEffect.Play();
+                transform.LookAt(enemies[target].GetComponent<Enemy>().head.position);
             }
-            //head rotation
-            camSpeed = 3.0f;
-            transform.position = player.transform.position + new Vector3(0.0f, 2.0f, 0.0f);
-            float verticalVInput = Input.GetAxis("Mouse Y");
-            float horizontalVInput = Input.GetAxis("Mouse X");
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x + (camSpeed * verticalVInput * -1), transform.eulerAngles.y, transform.eulerAngles.z);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + (camSpeed * horizontalVInput), transform.eulerAngles.z);
-            if (transform.eulerAngles.x <= lowerX && transform.eulerAngles.x > upperX)
+            else
             {
-                transform.eulerAngles = new Vector3(lowerX + 1, transform.eulerAngles.y, transform.eulerAngles.z);
+                target++;
             }
-            else if (transform.eulerAngles.x >= upperX && lowerX > transform.eulerAngles.x)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                transform.eulerAngles = new Vector3(upperX - 1, transform.eulerAngles.y, transform.eulerAngles.z);
+                target++;
             }
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0.0f);
-            //lock onto target
-            checkRange();
-            if (target >= enemies.Count)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                target = 0;
+                target--;
             }
-            if (target < 0)
+            if (Vector3.Distance(pos2.position, camera.transform.position) >= .001f)
             {
-                target = enemies.Count - 1;
+                camera.transform.position = Vector3.MoveTowards(camera.transform.position, pos2.position, 8.0f * Time.deltaTime);
+                //if holding left shift and camera is not at position 2, move camera to position 2
             }
-            if (Input.GetKey(KeyCode.LeftShift) && enemies.Count > 0 && enemies[target].GetComponent<Enemy>().kill == false)
-            {
-                if (enemies[target].GetComponent<Enemy>().kill == false)
-                {
-                    transform.LookAt(enemies[target].GetComponent<Enemy>().head.position);
-                }
-                else
-                {
-                    target++;
-                }
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    target++;
-                }
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    target--;
-                }
-                if (Vector3.Distance(pos2.position, camera.transform.position) >= .001f)
-                {
-                    camera.transform.position = Vector3.MoveTowards(camera.transform.position, pos2.position, 8.0f * Time.deltaTime);
-                    //if holding left shift and camera is not at position 2, move camera to position 2
-                }
-            }
-            else if (Vector3.Distance(pos1.position, camera.transform.position) >= .001f)
-            {
-                camera.transform.position = Vector3.MoveTowards(camera.transform.position, pos1.position, 8.0f * Time.deltaTime);
-                //if not holding left shift and camera is not at position1, move camera to position 1
-            }
-            if (select < 0)
-            {
-                select = bullet.Count - 1;
-            }
-            if (select >= bullet.Count)
-            {
-                select = 0;
-            }
-            changeWeapon();
-            weaponSwitch();
+        }
+        else if (Vector3.Distance(pos1.position, camera.transform.position) >= .001f)
+        {
+            camera.transform.position = Vector3.MoveTowards(camera.transform.position, pos1.position, 8.0f * Time.deltaTime);
+            //if not holding left shift and camera is not at position1, move camera to position 1
+        }
+        if (select < 0)
+        {
+            select = bullet.Count - 1;
+        }
+        if (select >= bullet.Count)
+        {
+            select = 0;
+        }
+        changeWeapon();
+        weaponSwitch();
         //shooting bullets
         if (Input.GetMouseButtonDown(0) && stock[(int)select] > 0 && recover[(int)select] >= recoil[(int)select])
+        {
+            
+            if (select == 4)
             {
-                shotsSoundEffect.Play();
-                if (select == 4)
+                GameObject punch = Instantiate(bullet[(int)select], player.transform, false);
+                punch.transform.localPosition += new Vector3(-0.5f, 1.75f, 0.55f);
+            }
+            else if (select == 3)
+            {
+                for (int i = 0; i < bulletLoadout; i++)
                 {
-                    GameObject punch = Instantiate(bullet[(int)select], player.transform, false);
-                    punch.transform.localPosition += new Vector3(-0.5f, 1.75f, 0.55f);
-                }
-                else if (select == 3)
-                {
-                    for (int i = 0; i < bulletLoadout; i++)
-                    {
-                        Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
-                        Instantiate(particleFlash, bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
-                    }
-                }
-                else
-                {
-                    Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation);
+                    shotsSoundEffect.Play();
+                    Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
                     Instantiate(particleFlash, bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
                 }
-                recover[(int)select] = 0.0f;
-                stock[(int)select] -= 1;
-                recoverB[(int)select] = reload[(int)select];
             }
-            if (recover[(int)select] < recoil[(int)select])
+            else
             {
-                recover[(int)select] += Time.deltaTime;
+                shotsSoundEffect.Play();
+                Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation);
+                Instantiate(particleFlash, bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
             }
-            if (stock[(int)select] <= 0)
+            recover[(int)select] = 0.0f;
+            stock[(int)select] -= 1;
+            recoverB[(int)select] = reload[(int)select];
+        }
+        if (recover[(int)select] < recoil[(int)select])
+        {
+            recover[(int)select] += Time.deltaTime;
+        }
+        if (stock[(int)select] <= 0)
+        {
+            recoverB[(int)select] -= Time.deltaTime;
+            if (recoverB[(int)select] <= 0)
             {
-                recoverB[(int)select] -= Time.deltaTime;
-                if (recoverB[(int)select] <= 0)
+                stock[(int)select] = max[(int)select];
+            }
+        }
+
+
+        if (enemies.Count == 0)
+        {
+
+
+            // Change background music to default music
+            if (intenseBackgroundMusic.isPlaying)
+            {
+                Debug.Log("Switch");
+
+                intenseBackgroundMusic.Stop();
+                defaultBackgroundMusic.Play();
+
+                aggressive = false;
+
+
+            }
+            else
+            {
+                // CHange background music to intense music
+                if (defaultBackgroundMusic.isPlaying)
                 {
-                    stock[(int)select] = max[(int)select];
+                    Debug.Log("Back");
+                    defaultBackgroundMusic.Stop();
+                    intenseBackgroundMusic.Play();
+
+                    aggressive = true;
                 }
             }
         }
+
+    }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -290,32 +324,8 @@ public class Head : MonoBehaviour
             }
             
         }
-            if (enemies.Count == 0)
-            {
-            
-                
-                // Change background music to default music
-                if (intenseBackgroundMusic.isPlaying){
-                Debug.Log("Switch");
-                    
-                    intenseBackgroundMusic.Stop();
-                    defaultBackgroundMusic.Play();
-                    
-                    aggressive = false;
-
-                }
-            }
-
-            else
-            {
-                // CHange background music to intense music
-                if (defaultBackgroundMusic.isPlaying){
-                Debug.Log("Back");
-                    defaultBackgroundMusic.Stop();
-                    intenseBackgroundMusic.Play();
-                    
-                    aggressive = true;
-            }
+        
+        
    
         private void weaponSwitch()
         {
@@ -343,3 +353,6 @@ public class Head : MonoBehaviour
         weaponText.text = "Weapon: " + weaponNames[(int)select].ToString();
     }
 }
+
+
+

@@ -16,6 +16,10 @@ public class Head : MonoBehaviour
     public float lowerX = 345.0f;
     public TextMeshProUGUI bulletDisplay;
     public TextMeshProUGUI weaponText;
+    private AudioSource backgroundMusic;
+    public AudioSource defaultBackgroundMusic;
+    public AudioSource intenseBackgroundMusic;
+    private bool aggressive = false;
     
     [SerializeField] private AudioSource shotsSoundEffect;
     [SerializeField] private AudioSource reloadSoundEffect;
@@ -284,7 +288,34 @@ public class Head : MonoBehaviour
                     }
                 }
             }
+            
         }
+            if (enemies.Count == 0)
+            {
+            
+                
+                // Change background music to default music
+                if (intenseBackgroundMusic.isPlaying){
+                Debug.Log("Switch");
+                    
+                    intenseBackgroundMusic.Stop();
+                    defaultBackgroundMusic.Play();
+                    
+                    aggressive = false;
+
+                }
+            }
+
+            else
+            {
+                // CHange background music to intense music
+                if (defaultBackgroundMusic.isPlaying){
+                Debug.Log("Back");
+                    defaultBackgroundMusic.Stop();
+                    intenseBackgroundMusic.Play();
+                    
+                    aggressive = true;
+            }
    
         private void weaponSwitch()
         {

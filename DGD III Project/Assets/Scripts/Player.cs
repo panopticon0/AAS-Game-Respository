@@ -191,6 +191,19 @@ public class Player : MonoBehaviour
             onGround = false;
         }
     }
+    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Enemy")
+        {
+            if (invi == false)
+            {
+                health--;
+                invi = true;
+                Debug.Log(health + " invi set to true");
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {

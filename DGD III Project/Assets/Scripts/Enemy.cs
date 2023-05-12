@@ -20,6 +20,10 @@ public class Enemy : MonoBehaviour
     public float gravityValue = 3f;
     public float gravityMultiplier = 1.1f;
     public float enemyYVelocity = 3f;
+    
+    private int track1 = 0;
+    private int track2 = 0;
+    
     [SerializeField] private AudioSource ZombieAttack;
     
     // Start is called before the first frame update
@@ -80,7 +84,17 @@ public class Enemy : MonoBehaviour
                     enemyAI.Move(speed * velocity * Time.deltaTime);
                 }
             }
-
+        
+        if (track1 > track2)
+        {
+            track2 = track1;
+        } else
+        {
+            track1 = 0;
+            track2 = 0;
+            enemyAnim.SetBool("attacking", false);
+        }
+        
         if (health <= 0)
         {
             kill = true;
@@ -126,6 +140,16 @@ public class Enemy : MonoBehaviour
         if (collision2.gameObject.tag == "Player")
         {
             enemyAnim.SetBool("attacking", false);
+        }
+    }
+    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Player")
+        {
+            Debug.Log("Attacking!");
+            enemyAnim.SetBool("attacking", true);
+            track1++;
         }
     }
 }

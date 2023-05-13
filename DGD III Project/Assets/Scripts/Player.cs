@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
             deathSoundEffect.Play();
             if (invi == false)
             {
-                playerHealth--;
+                playerHealth = playerHealth - 2;
                 healthBar.SetHealth(playerHealth);
                 invi = true;
                 Debug.Log(playerHealth + " invi set to true");
@@ -189,6 +189,19 @@ public class Player : MonoBehaviour
         if (collision2.gameObject.tag == "Ground")
         {
             onGround = false;
+        }
+    }
+    
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Enemy")
+        {
+            if (invi == false)
+            {
+                playerHealth = playerHealth - 3;
+                invi = true;
+                Debug.Log(playerHealth + " invi set to true");
+            }
         }
     }
 

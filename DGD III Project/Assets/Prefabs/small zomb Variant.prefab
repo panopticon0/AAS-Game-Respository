@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb689e2431bd304e9e34ddadff79f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
+  range: 15
   kill: 0
   enemyAnim: {fileID: 0}
   head: {fileID: 240979288819871808}

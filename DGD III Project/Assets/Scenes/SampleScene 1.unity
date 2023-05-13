@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.7635408, g: 0.6723939, b: 0.5021611, a: 1}
+  m_IndirectSpecularColor: {r: 0.76354074, g: 0.67239356, b: 0.5021609, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -248,7 +248,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208525769}
-  m_LocalRotation: {x: 0.22189747, y: 0.000000029258636, z: -0.0000000066584116, w: 0.97507}
+  m_LocalRotation: {x: 0.22189744, y: -0.0000000034090744, z: 7.758057e-10, w: 0.97507}
   m_LocalPosition: {x: 0, y: 4.9, z: -11.245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -375,6 +375,23 @@ MonoBehaviour:
   camSpeed: 3
   upperX: 90
   lowerX: 345
+  bulletDisplay: {fileID: 0}
+  weaponText: {fileID: 0}
+  defaultBackgroundMusic: {fileID: 0}
+  intenseBackgroundMusic: {fileID: 0}
+  shotsSoundEffect: {fileID: 0}
+  reloadSoundEffect: {fileID: 0}
+  bulletPosition: {fileID: 0}
+  weaponRig: {fileID: 0}
+  weaponLayers: 0000000001000000020000000300000004000000
+  weapons: []
+  weaponNames:
+  - Pistol
+  - Flintlock
+  - Assault Rifle
+  - Shotgun
+  - Katana
+  particleFlash: {fileID: 0}
   player: {fileID: 98753823}
   camera: {fileID: 0}
   pos1: {fileID: 0}
@@ -812,7 +829,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.22189747, y: 0.000000029258636, z: -0.0000000066584116, w: 0.97507}
+  m_LocalRotation: {x: 0.22189744, y: -0.0000000034090744, z: 7.758057e-10, w: 0.97507}
   m_LocalPosition: {x: 0, y: 4.9, z: -11.245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

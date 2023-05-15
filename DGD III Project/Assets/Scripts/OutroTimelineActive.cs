@@ -13,6 +13,7 @@ public class OutroTimelineActive : MonoBehaviour
     public GameObject boat;
     public GameObject boatOutro;
     public GameObject button;
+    [SerializeField] private AudioSource endMusic;
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class OutroTimelineActive : MonoBehaviour
         playerCam.SetActive(false);
         outroCam.SetActive(true);
         boatOutro.SetActive(true);
-
+        endMusic.Play();
     }
 
     public void StartTimeline()

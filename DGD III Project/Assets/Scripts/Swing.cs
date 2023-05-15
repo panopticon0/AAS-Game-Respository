@@ -8,10 +8,12 @@ public class Swing : MonoBehaviour
     private float timer = 0.25f;
     public float damage = 2f;
     private Transform player;
+    [SerializeField] private AudioSource swingSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        swingSound.Play();
         player = GameObject.FindWithTag("Player").transform;
     }
 

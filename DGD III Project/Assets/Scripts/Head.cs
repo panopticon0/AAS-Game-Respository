@@ -23,6 +23,7 @@ public class Head : MonoBehaviour
     
     [SerializeField] private AudioSource shotsSoundEffect;
     [SerializeField] private AudioSource reloadSoundEffect;
+    [SerializeField] private AudioSource flintlockSound;
 
     //how long it takes to fire another shot
     private List<float> recoil = new List<float>();
@@ -194,6 +195,10 @@ public class Head : MonoBehaviour
             }
             else
             {
+                if (select == 1)
+                {
+                    flintlockSound.Play();
+                }
                 shotsSoundEffect.Play();
                 Instantiate(bullet[(int)select], bulletPosition.position, bulletPosition.rotation);
                 Instantiate(particleFlash, bulletPosition.position, bulletPosition.rotation * Quaternion.Euler(Random.Range(-rangeRotate, rangeRotate), Random.Range(-rangeRotate, rangeRotate), 0));
@@ -216,7 +221,7 @@ public class Head : MonoBehaviour
         }
 
 
-        if (enemies.Count == 0)
+        /* if (enemies.Count == 0)
         {
 
 
@@ -244,7 +249,7 @@ public class Head : MonoBehaviour
                     aggressive = true;
                 }
             }
-        }
+        } */
 
     }
 
@@ -253,7 +258,8 @@ public class Head : MonoBehaviour
             //check for enemy in range
             if (other.tag == "Enemy")
             {
-                bool exist = false;
+
+            bool exist = false;
                 for (int i = 0; i < enemies.Count; i++)
                 {
                     if (other.gameObject.GetInstanceID() == enemies[i].GetInstanceID() || other.gameObject.GetComponent<Enemy>().kill == true)
@@ -268,6 +274,8 @@ public class Head : MonoBehaviour
                 }
             }
         }
+
+   
         
         private void changeWeapon()
         {

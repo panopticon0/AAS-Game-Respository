@@ -11,6 +11,7 @@ public class NoteInteraction : MonoBehaviour
     public GameObject imageCanvas;
     public bool note;
     public Button exitButton;
+    [SerializeField] private AudioSource paper;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class NoteInteraction : MonoBehaviour
             imageCanvas.SetActive(true);
             triggerText.enabled = false;
             Cursor.visible = true;
-           
+            paper.Play();
         }
     }
 

@@ -41,9 +41,13 @@ public class Player : MonoBehaviour
     private RigBuilder rigBuilder;
     [SerializeField] private AudioSource collectionSoundEffect;
     [SerializeField] private AudioSource deathSoundEffect;
-
-
+    [SerializeField] private AudioSource woodSound;
+    [SerializeField] private AudioSource collection2SoundEffect;
     
+
+
+
+
 
 
     // Start is called before the first frame update
@@ -102,6 +106,7 @@ public class Player : MonoBehaviour
         //death sequence
         if (playerHealth <= 0)
         {
+            
             playerAnim.SetBool("dead", true);
             GameObject.Find("HeadCube (1)").GetComponent<Head>().enabled = false;
             rigBuilder.enabled = false;
@@ -148,12 +153,14 @@ public class Player : MonoBehaviour
         //Player presses E to consume item
         if (itemConsume == true && Input.GetKeyDown(KeyCode.E))
         {
-            playerHealth = playerHealth + 3.0f;
+            collection2SoundEffect.Play();
+            playerHealth = playerHealth + 4.0f;
                 consumed = true;
         } 
         
         if (plankCollect == true && Input.GetKeyDown(KeyCode.E))
         {
+            woodSound.Play();
             planks++;
             consumed = true;
             plankCollect = false;
@@ -170,7 +177,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
-            deathSoundEffect.Play();
+            
             if (invi == false)
             {
                 playerHealth = playerHealth - 2;
@@ -196,6 +203,7 @@ public class Player : MonoBehaviour
     {
         if (hit.gameObject.tag == "Enemy")
         {
+            deathSoundEffect.Play();
             if (invi == false)
             {
                 playerHealth = playerHealth - 3;

@@ -108,7 +108,18 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Player")
+        {
+            Debug.Log("Attacking!");
+            enemyAnim.SetBool("attacking", true);
+            track1++;
+        }
+      
+    }
+
+   void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bullet")
         {
@@ -122,7 +133,7 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log(health);
         }
-    }
+    } 
 
     void OnCollisionEnter(Collision collision)
     {
@@ -143,13 +154,5 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.tag == "Player")
-        {
-            Debug.Log("Attacking!");
-            enemyAnim.SetBool("attacking", true);
-            track1++;
-        }
-    }
+
 }
